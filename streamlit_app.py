@@ -2,6 +2,19 @@ import streamlit as st
 import pandas as pd
 import math
 from pathlib import Path
+import pandas as pd
+import streamlit as st
+from PIL import Image
+import time
+import datetime
+#import database as db
+import streamlit_authenticator as stauth
+import google_auth_httplib2
+import httplib2
+from google.oauth2 import service_account
+from googleapiclient.discovery import build
+from googleapiclient.http import HttpRequest
+from feel_it import EmotionClassifier, SentimentClassifier
 
 # Set the title and favicon that appear in the Browser's tab bar.
 st.set_page_config(
@@ -64,7 +77,7 @@ gdp_df = get_gdp_data()
 
 # Set the title that appears at the top of the page.
 '''
-#🦾🧬Identificador ADN y ARN
+# 🦾🧬 Identificador ADN y ARN
 
 
 La bioinformática es una disciplina interdisciplinaria que emplea técnicas computacionales y estadisticas 
