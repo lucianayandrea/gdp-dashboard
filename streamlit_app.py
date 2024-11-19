@@ -66,6 +66,7 @@ gdp_df = get_gdp_data()
 '''
 #🦾🧬Identificador ADN y ARN
 
+
 La bioinformática es una disciplina interdisciplinaria que emplea técnicas computacionales y estadisticas 
 para resolver problemas biologicos, especialmente aquellos relacionados con la biologia molecular y genética 
 Una de las tareas fundamentales en el ámbito de la bioinformatica es la comprensión y manipulación de secuencias biológicas 
