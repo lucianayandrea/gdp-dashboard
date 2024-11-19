@@ -4,17 +4,6 @@ import math
 from pathlib import Path
 import pandas as pd
 import streamlit as st
-from PIL import Image
-import time
-import datetime
-#import database as db
-import streamlit_authenticator as stauth
-import google_auth_httplib2
-import httplib2
-from google.oauth2 import service_account
-from googleapiclient.discovery import build
-from googleapiclient.http import HttpRequest
-from feel_it import EmotionClassifier, SentimentClassifier
 
 # Set the title and favicon that appear in the Browser's tab bar.
 st.set_page_config(
