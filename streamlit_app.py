@@ -64,11 +64,13 @@ gdp_df = get_gdp_data()
 
 # Set the title that appears at the top of the page.
 '''
-# :🦾🧬Identificador ADN y ARN
+#🦾🧬Identificador ADN y ARN
 
-Browse GDP data from the [World Bank Open Data](https://data.worldbank.org/) website. As you'll
-notice, the data only goes to 2022 right now, and datapoints for certain years are often missing.
-But it's otherwise a great (and did I mention _free_?) source of data.
+La bioinformática es una disciplina interdisciplinaria que emplea técnicas computacionales y estadisticas 
+para resolver problemas biologicos, especialmente aquellos relacionados con la biologia molecular y genética 
+Una de las tareas fundamentales en el ámbito de la bioinformatica es la comprensión y manipulación de secuencias biológicas 
+como las del ADN,ARN y proteinas. En este contexto, la traduccion de ADN representa un un proceso clave dento de la 
+expresion genética contenida en el ADN es convertida en proteinas funcionales, a través de la intermediación del ARN mensajero.
 '''
 
 # Add some spacing
