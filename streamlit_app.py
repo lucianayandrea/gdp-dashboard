@@ -96,7 +96,7 @@ if not len(countries):
 
 selected_countries = st.multiselect(
     'Which protein would you like to view?',
-    countries,
+    protein,
     ['Insulina', 'Albumina', 'Hemoglobina', 'Queratina', 'Glucagon', 'Colágeno'])
 
 ''
