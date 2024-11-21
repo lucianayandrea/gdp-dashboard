@@ -76,3 +76,50 @@ como las del ADN,ARN y proteinas. En este contexto, la traduccion de ADN represe
 expresion genética contenida en el ADN es convertida en proteinas funcionales, a través de la intermediación del ARN mensajero.
 '''
 
+import streamlit as st
+
+# Función para transcribir ADN a ARN
+def transcribir_adn_a_arn(adn):
+    """
+    Transcribe una secuencia de ADN a ARN.
+    Reemplaza las bases de ADN con las correspondientes bases de ARN:
+    - A -> U
+    - T -> A
+    - C -> G
+    - G -> C
+    """
+    # Diccionario que mapea las bases de ADN a ARN
+    transcripcion = {'A': 'U', 'T': 'A', 'C': 'G', 'G': 'C'}
+    
+    # Se recorre la secuencia de ADN y se convierte a ARN
+    arn = ''.join([transcripcion.get(base, '') for base in adn.upper()])
+    
+    # Retorna la secuencia de ARN
+    return arn
+
+# Título de la aplicación
+st.title("Transcripción de ADN a ARN")
+
+# Descripción breve de la aplicación
+st.write("""
+    Este es un sencillo transcriptor de ADN a ARN. 
+    Introduce una secuencia de ADN (solo letras A, T, C, G) y obtén su secuencia de ARN correspondiente.
+""")
+
+# Entrada de texto para que el usuario introduzca una secuencia de ADN
+adn = st.text_input("Introduce la secuencia de ADN:", "")
+
+# Verifica si el usuario ha hecho clic en el botón de transcripción
+if st.button("Transcribir"):
+    # Si el usuario introdujo algo en el campo de texto
+    if adn:
+        # Llamamos a la función para transcribir ADN a ARN
+        arn = transcribir_adn_a_arn(adn)
+        
+        # Si se obtuvo una secuencia de ARN válida, mostramos el resultado
+        if arn:
+            st.success(f"Secuencia de ARN resultante: {arn}")
+        else:
+            st.error("La secuencia de ADN contiene caracteres inválidos. Solo se permiten A, T, C, G.")
+    else:
+        st.warning("Por favor, introduce una secuencia de ADN.")
