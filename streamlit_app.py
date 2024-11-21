@@ -134,6 +134,55 @@ if st.button("Transcribir ADN a ARN"):
         st.warning("Por favor, ingresa una secuencia de ADN.")
 
 
+import streamlit as st
+
+# Función para dividir la secuencia de ARN en codones (tripletas de bases)
+def dividir_en_codones(arn):
+    """
+    Toma una secuencia de ARN y la divide en codones (tripletas de bases).
+    Devuelve una lista de codones.
+    """
+    codones = []
+    for i in range(0, len(arn), 3):  # Dividimos el ARN en fragmentos de 3 bases
+        codon = arn[i:i+3]
+        # Aseguramos que cada codón tenga exactamente 3 bases
+        if len(codon) == 3:
+            codones.append(codon)
+    return codones
+
+# Título de la aplicación
+st.title("Transcripción de ARN a Codones")
+
+# Descripción de la aplicación
+st.write("""
+    Esta aplicación toma una secuencia de ARN y la divide en codones (tripletas de bases).
+    Un codón es un conjunto de tres nucleótidos que codifica un aminoácido.
+    Si introduces un carácter no válido, te mostraremos un mensaje de error.
+""")
+
+# Entrada de texto para que el usuario ingrese una secuencia de ARN
+arn = st.text_input("Introduce la secuencia de ARN (solo A, U, G, C):", "")
+
+# Verifica si el usuario ha presionado el botón de transcripción
+if st.button("Dividir en Codones"):
+    if arn:
+        # Convertimos la secuencia de ARN a mayúsculas para evitar problemas de formato
+        arn = arn.upper()
+
+        # Comprobar que la secuencia solo contiene bases válidas de ARN (A, U, C, G)
+        if all(base in 'AUGC' for base in arn):
+            # Llamamos a la función para dividir el ARN en codones
+            codones = dividir_en_codones(arn)
+            
+            # Mostrar la lista de codones
+            if codones:
+                st.success(f"Codones obtenidos: {', '.join(codones)}")
+            else:
+                st.warning("La secuencia de ARN es demasiado corta para obtener codones válidos.")
+        else:
+            st.error("La secuencia de ARN contiene bases inválidas. Solo se permiten A, U, G y C.")
+    else:
+        st.warning("Por favor, ingresa una secuencia de ARN.")
 
   
 
