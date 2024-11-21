@@ -110,7 +110,7 @@ st.write("""
 adn = st.text_input("Introduce la secuencia de ADN:", "")
 
 # Verifica si el usuario ha hecho clic en el botón de transcripción
-if st.button("Transcribir"):
+if st.button("Transcribir a ARN"):
     # Si el usuario introdujo algo en el campo de texto
     if adn:
         # Llamamos a la función para transcribir ADN a ARN
@@ -177,7 +177,7 @@ st.write("""
 arn = st.text_input("Introduce la secuencia de ARN:", "")
 
 # Verifica si el usuario ha presionado el botón de transcripción
-if st.button("Transcribir"):
+if st.button("Transcribir a proteina"):
     if arn:
         # Llamamos a la función para traducir el ARN a proteína
         proteina = transcribir_arn_a_proteina(arn)
