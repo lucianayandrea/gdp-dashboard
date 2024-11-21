@@ -135,18 +135,18 @@ if st.button("Transcribir ADN a ARN"):
 
 import streamlit as st
 
-# Diccionario que mapea codones de ARN a aminoácidos
+# Diccionario que mapea codones de ARN a sus respectivos códigos de tres letras de aminoácidos
 codon_to_aminoacid = {
-    "AUG": "Metionina", "UUU": "Fenilalanina", "UUC": "Fenilalanina", "UUA": "Leucina", "UUG": "Leucina",
-    "CUU": "Leucina", "CUC": "Leucina", "CUA": "Leucina", "CUG": "Leucina", "AUU": "Isoleucina",
-    "AUC": "Isoleucina", "AUA": "Isoleucina", "ACU": "Treonina", "ACC": "Treonina", "ACA": "Treonina",
-    "ACG": "Treonina", "GUU": "Valina", "GUC": "Valina", "GUA": "Valina", "GUG": "Valina",
-    "GCU": "Alanina", "GCC": "Alanina", "GCA": "Alanina", "GCG": "Alanina", "AAU": "Asparagina",
-    "AAC": "Asparagina", "AAA": "Lisina", "AAG": "Lisina", "GAU": "Ácido aspártico", "GAC": "Ácido aspártico",
-    "GAA": "Ácido glutámico", "GAG": "Ácido glutámico", "UGU": "Cisteína", "UGC": "Cisteína",
-    "UGA": "Stop", "UGG": "Triptófano", "CGU": "Arginina", "CGC": "Arginina", "CGA": "Arginina",
-    "CGG": "Arginina", "AGU": "Serina", "AGC": "Serina", "AGA": "Arginina", "AGG": "Arginina",
-    "GGU": "Glicina", "GGC": "Glicina", "GGA": "Glicina", "GGG": "Glicina"
+    "AUG": "Met", "UUU": "Phe", "UUC": "Phe", "UUA": "Leu", "UUG": "Leu",
+    "CUU": "Leu", "CUC": "Leu", "CUA": "Leu", "CUG": "Leu", "AUU": "Ile",
+    "AUC": "Ile", "AUA": "Ile", "ACU": "Thr", "ACC": "Thr", "ACA": "Thr",
+    "ACG": "Thr", "GUU": "Val", "GUC": "Val", "GUA": "Val", "GUG": "Val",
+    "GCU": "Ala", "GCC": "Ala", "GCA": "Ala", "GCG": "Ala", "AAU": "Asn",
+    "AAC": "Asn", "AAA": "Lys", "AAG": "Lys", "GAU": "Asp", "GAC": "Asp",
+    "GAA": "Glu", "GAG": "Glu", "UGU": "Cys", "UGC": "Cys", "UGA": "Stop",
+    "UGG": "Trp", "CGU": "Arg", "CGC": "Arg", "CGA": "Arg", "CGG": "Arg",
+    "AGU": "Ser", "AGC": "Ser", "AGA": "Arg", "AGG": "Arg", "GGU": "Gly",
+    "GGC": "Gly", "GGA": "Gly", "GGG": "Gly"
 }
 
 # Función para dividir la secuencia de ARN en codones (tripletas de bases)
@@ -163,34 +163,33 @@ def dividir_en_codones(arn):
             codones.append(codon)
     return codones
 
-# Función para traducir codones a aminoácidos
-def traducir_codones_a_aminoacidos(codones):
+# Función para traducir codones a códigos de tres letras de aminoácidos
+def traducir_codones_a_codigo(codones):
     """
-    Toma una lista de codones y los traduce a aminoácidos utilizando el diccionario codon_to_aminoacid.
+    Toma una lista de codones y los traduce a códigos de tres letras de aminoácidos utilizando el diccionario codon_to_aminoacid.
     """
-    aminoacidos = []
+    codigos = []
     for codon in codones:
         if codon in codon_to_aminoacid:
-            aminoacidos.append(codon_to_aminoacid[codon])
+            codigos.append(codon_to_aminoacid[codon])
         else:
-            aminoacidos.append("Stop")  # Si el codón no es válido, consideramos "Stop"
-    return aminoacidos
+            codigos.append("Stop")  # Si el codón no es válido, consideramos "Stop"
+    return codigos
 
 # Título de la aplicación
-st.title("Transcripción de ARN a Aminoácidos")
+st.title("Transcripción de ARN a Códigos de Aminoácidos (3 letras)")
 
 # Descripción de la aplicación
 st.write("""
-    Esta aplicación toma una secuencia de ARN, la divide en codones y luego la traduce a aminoácidos.
-    Un codón es un conjunto de tres nucleótidos que codifica un aminoácido.
-    Si introduces un carácter no válido, te mostraremos un mensaje de error.
+    Esta aplicación toma una secuencia de ARN, la divide en codones y luego la traduce a los códigos de tres letras de los aminoácidos.
+    Un codón es un conjunto de tres nucleótidos que codifica un aminoácido. Si introduces un carácter no válido, te mostraremos un mensaje de error.
 """)
 
 # Entrada de texto para que el usuario ingrese una secuencia de ARN
 arn = st.text_input("Introduce la secuencia de ARN (solo A, U, G, C):", "")
 
 # Verifica si el usuario ha presionado el botón de transcripción
-if st.button("Traducir ARN a Aminoácidos"):
+if st.button("Traducir ARN a Códigos de Aminoácidos"):
     if arn:
         # Convertimos la secuencia de ARN a mayúsculas para evitar problemas de formato
         arn = arn.upper()
@@ -200,16 +199,17 @@ if st.button("Traducir ARN a Aminoácidos"):
             # Llamamos a la función para dividir el ARN en codones
             codones = dividir_en_codones(arn)
             
-            # Llamamos a la función para traducir los codones a aminoácidos
-            aminoacidos = traducir_codones_a_aminoacidos(codones)
+            # Llamamos a la función para traducir los codones a los códigos de aminoácidos
+            codigos_aminoacidos = traducir_codones_a_codigo(codones)
             
             # Mostrar los resultados
-            if aminoacidos:
-                st.success(f"Aminoácidos obtenidos: {', '.join(aminoacidos)}")
+            if codigos_aminoacidos:
+                st.success(f"Códigos de aminoácidos obtenidos: {', '.join(codigos_aminoacidos)}")
             else:
                 st.warning("La secuencia de ARN es demasiado corta para obtener aminoácidos válidos.")
         else:
             st.error("La secuencia de ARN contiene bases inválidas. Solo se permiten A, U, G y C.")
     else:
         st.warning("Por favor, ingresa una secuencia de ARN.")
+
 
