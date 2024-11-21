@@ -138,8 +138,8 @@ import streamlit as st
 # Diccionario que mapea codones de ARN a sus respectivos códigos de tres letras de aminoácidos
 codon_to_aminoacid = {
     "AUG": "Met", "UUU": "Phe", "UUC": "Phe", "UUA": "Leu", "UUG": "Leu",
-    "CUU": "Leu", "CUC": "Leu", "CUA": "Leu", "CUG": "Leu", "AUU": "Ile",
-    "AUC": "Ile", "AUA": "Ile", "ACU": "Thr", "ACC": "Thr", "ACA": "Thr",
+    "CUU": "Leu", "CUC": "Leu", "CUA": "Leu", "CUG": "Leu", "AUU": "Iso",
+    "AUC": "Iso", "AUA": "Iso", "ACU": "Thr", "ACC": "Thr", "ACA": "Thr",
     "ACG": "Thr", "GUU": "Val", "GUC": "Val", "GUA": "Val", "GUG": "Val",
     "GCU": "Ala", "GCC": "Ala", "GCA": "Ala", "GCG": "Ala", "AAU": "Asn",
     "AAC": "Asn", "AAA": "Lys", "AAG": "Lys", "GAU": "Asp", "GAC": "Asp",
@@ -177,7 +177,7 @@ def traducir_codones_a_codigo(codones):
     return codigos
 
 # Título de la aplicación
-st.title("Transcripción de ARN a Códigos de Aminoácidos (3 letras)")
+st.title("Transcripción de ARN a Aminoácidos")
 
 # Descripción de la aplicación
 st.write("""
@@ -189,7 +189,7 @@ st.write("""
 arn = st.text_input("Introduce la secuencia de ARN (solo A, U, G, C):", "")
 
 # Verifica si el usuario ha presionado el botón de transcripción
-if st.button("Traducir ARN a Códigos de Aminoácidos"):
+if st.button("Traducir ARN a Aminoácidos"):
     if arn:
         # Convertimos la secuencia de ARN a mayúsculas para evitar problemas de formato
         arn = arn.upper()
