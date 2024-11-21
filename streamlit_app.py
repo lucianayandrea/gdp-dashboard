@@ -123,3 +123,69 @@ if st.button("Transcribir"):
             st.error("La secuencia de ADN contiene caracteres inválidos. Solo se permiten A, T, C, G.")
     else:
         st.warning("Por favor, introduce una secuencia de ADN.")
+import streamlit as st
+
+# Diccionario de codones de ARN a aminoácidos (simplificado)
+codones_a_aminoacidos = {
+    'AUG': 'Met', 'UUU': 'Phe', 'UUC': 'Phe', 'UUA': 'Leu', 'UUG': 'Leu',
+    'CUU': 'Leu', 'CUC': 'Leu', 'CUA': 'Leu', 'CUG': 'Leu', 'AUU': 'Ile',
+    'AUC': 'Ile', 'AUA': 'Ile', 'AUG': 'Met', 'GUU': 'Val', 'GUC': 'Val',
+    'GUA': 'Val', 'GUG': 'Val', 'CCU': 'Pro', 'CCC': 'Pro', 'CCA': 'Pro',
+    'CCG': 'Pro', 'ACU': 'Thr', 'ACC': 'Thr', 'ACA': 'Thr', 'ACG': 'Thr',
+    'GCU': 'Ala', 'GCC': 'Ala', 'GCA': 'Ala', 'GCG': 'Ala', 'UAU': 'Tyr',
+    'UAC': 'Tyr', 'UAA': 'Stop', 'UAG': 'Stop', 'UGA': 'Stop', 'CAU': 'His',
+    'CAC': 'His', 'CAA': 'Gln', 'CAG': 'Gln', 'AAU': 'Asn', 'AAC': 'Asn',
+    'AAA': 'Lys', 'AAG': 'Lys', 'GAU': 'Asp', 'GAC': 'Asp', 'GAA': 'Glu',
+    'GAG': 'Glu', 'CGU': 'Arg', 'CGC': 'Arg', 'CGA': 'Arg', 'CGG': 'Arg',
+    'AGU': 'Ser', 'AGC': 'Ser', 'AGA': 'Arg', 'AGG': 'Arg', 'GGU': 'Gly',
+    'GGC': 'Gly', 'GGA': 'Gly', 'GGG': 'Gly'
+}
+
+# Función para traducir ARN a proteína
+def transcribir_arn_a_proteina(arn):
+    """
+    Convierte una secuencia de ARN a una cadena de proteína
+    usando el código genético.
+    """
+    # Inicializar la proteína
+    proteina = []
+    
+    # Dividir el ARN en codones (cada 3 bases)
+    for i in range(0, len(arn), 3):
+        codon = arn[i:i+3]
+        # Verificar si el codón es válido
+        if len(codon) == 3:
+            # Obtener el aminoácido correspondiente al codón
+            aminoacido = codones_a_aminoacidos.get(codon, 'Stop')
+            # Si el aminoácido es 'Stop', terminamos la traducción
+            if aminoacido == 'Stop':
+                break
+            proteina.append(aminoacido)
+    
+    return ' - '.join(proteina)
+
+# Título de la aplicación
+st.title("Transcripción de ARN a Proteína")
+
+# Descripción de la aplicación
+st.write("""
+    Esta aplicación convierte una secuencia de ARN mensajero (ARNm) en una cadena de proteína
+    utilizando el código genético. Introduce una secuencia de ARN y obtén su secuencia de proteína correspondiente.
+""")
+
+# Entrada de texto para que el usuario ingrese una secuencia de ARN
+arn = st.text_input("Introduce la secuencia de ARN:", "")
+
+# Verifica si el usuario ha presionado el botón de transcripción
+if st.button("Transcribir"):
+    if arn:
+        # Llamamos a la función para traducir el ARN a proteína
+        proteina = transcribir_arn_a_proteina(arn)
+        
+        # Mostrar la secuencia de proteína resultante
+        if proteina:
+            st.success(f"Secuencia de proteína resultante: {proteina}")
+        else:
+            st.error("La secuencia de ARN no es válida o contiene caracteres no permitidos.")
+    else:
+        st.warning("Por favor, ingresa una secuencia de ARN.")
