@@ -154,3 +154,30 @@ for i, country in enumerate(selected_countries):
             delta=growth,
             delta_color=delta_color
         )
+import streamlit as st
+
+# Función para transcribir ADN a ARN
+def transcribir_adn_a_arn(adn):
+    # Diccionario para la transcripción
+    transcripcion = {'A': 'U', 'T': 'A', 'C': 'G', 'G': 'C'}
+    arn = ''.join([transcripcion.get(base, '') for base in adn.upper()])
+    return arn
+
+# Título de la aplicación
+st.title("Transcripción de ADN a ARN")
+
+# Ingreso de la secuencia de ADN
+adn = st.text_input("Introduce la secuencia de ADN:", "")
+
+# Botón para realizar la transcripción
+if st.button("Transcribir"):
+    if adn:
+        # Realizar la transcripción
+        arn = transcribir_adn_a_arn(adn)
+        # Mostrar el resultado
+        if arn:
+            st.success(f"Secuencia de ARN resultante: {arn}")
+        else:
+            st.error("Secuencia de ADN inválida. Asegúrate de que solo contenga A, T, C y G.")
+    else:
+        st.warning("Por favor, introduce una secuencia de ADN.")
