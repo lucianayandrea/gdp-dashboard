@@ -107,7 +107,7 @@ st.write("""
 
 # Ejemplo de secuencia de ADN humana
 adn_ejemplo = "ATGAGTGGCGTGGCGGTCCAGGAGGAGCTCAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGA"
-st.write("Ejemplo de secuencia de ADN (parte del genoma humano):")
+st.write("Ejemplo de secuencia de ADN")
 st.code(adn_ejemplo)
 
 # Entrada de texto para que el usuario ingrese su propia secuencia de ADN
