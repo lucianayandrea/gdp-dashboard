@@ -101,6 +101,7 @@ st.title("Transcripción de ADN a ARN")
 # Descripción de la aplicación
 st.write("""
     Aqui se convierte una secuencia de ADN a ARN.
+    
     En el proceso de transcripción, la base Timina (T) del ADN se reemplaza por Uracilo (U) en el ARN.
 """)
 
@@ -181,6 +182,7 @@ st.title("Transcripción de ARN a Aminoácidos")
 # Descripción de la aplicación
 st.write("""
     Esta aplicación toma una secuencia de ARN, la divide en codones y luego la traduce a aminoácidos.
+    
     Un codón es un conjunto de tres nucleótidos que codifica un aminoácido.
 """)
 
