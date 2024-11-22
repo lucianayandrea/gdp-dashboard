@@ -100,9 +100,8 @@ st.title("Transcripción de ADN a ARN")
 
 # Descripción de la aplicación
 st.write("""
-    Esta aplicación convierte una secuencia de ADN en ARN mensajero (ARNm).
+    Aqui se convierte una secuencia de ADN a ARN.
     En el proceso de transcripción, la base Timina (T) del ADN se reemplaza por Uracilo (U) en el ARN.
-    Si introduces un carácter no válido, te mostraremos un mensaje de error.
 """)
 
 # Ejemplo de secuencia de ADN humana
@@ -111,7 +110,7 @@ st.write("Ejemplo de secuencia de ADN:")
 st.code(adn_ejemplo)
 
 # Entrada de texto para que el usuario ingrese su propia secuencia de ADN
-adn_usuario = st.text_input("Introduce tu secuencia de ADN (solo A, T, G, C):", "")
+adn_usuario = st.text_input("Introduce tu secuencia de ADN:", "")
 
 # Verifica si el usuario ha presionado el botón de transcripción
 if st.button("Transcribir ADN a ARN"):
@@ -181,8 +180,8 @@ st.title("Transcripción de ARN a Aminoácidos")
 
 # Descripción de la aplicación
 st.write("""
-    Esta aplicación toma una secuencia de ARN, la divide en codones y luego la traduce a los códigos de tres letras de los aminoácidos.
-    Un codón es un conjunto de tres nucleótidos que codifica un aminoácido. Si introduces un carácter no válido, te mostraremos un mensaje de error.
+    Esta aplicación toma una secuencia de ARN, la divide en codones y luego la traduce a aminoácidos.
+    Un codón es un conjunto de tres nucleótidos que codifica un aminoácido.
 """)
 
 # Entrada de texto para que el usuario ingrese una secuencia de ARN
