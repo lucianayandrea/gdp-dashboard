@@ -178,10 +178,9 @@ def traducir_codones_a_codigo(codones):
 
 # Título de la aplicación
 st.title("Transcripción de ARN a Aminoácidos")
-
 # Descripción de la aplicación
 st.write("""
-Esta aplicación toma una secuencia de ARN, la divide en codones y luego la traduce a aminoácidos. Un codón es un conjunto de tres nucleótidos que codifica un aminoácido.
+  Esta aplicación toma una secuencia de ARN, la divide en codones y luego la traduce a aminoácidos. Un codón es un conjunto de tres nucleótidos que codifica un aminoácido.
 """)
 
 # Entrada de texto para que el usuario ingrese una secuencia de ARN
