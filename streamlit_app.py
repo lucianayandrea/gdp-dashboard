@@ -333,6 +333,22 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from collections import Counter
 
+import plotly.express as px
+import streamlit as st
+
+# Datos de ejemplo
+amino_acidos = ['ALA', 'VAL', 'GLY', 'ALA', 'GLY', 'GLY']
+frecuencia = {'ALA': 2, 'VAL': 1, 'GLY': 3}
+
+# Gráfico de barras con Plotly
+fig = px.bar(
+    x=list(frecuencia.keys()),
+    y=list(frecuencia.values()),
+    labels={'x': 'Aminoácido', 'y': 'Frecuencia'},
+    title='Frecuencia de Aminoácidos'
+)
+
+st.plotly_chart(fig)
 
 # Función para contar la frecuencia de los aminoácidos en la cadena ingresada
 def contar_aminoacidos(cadena):
