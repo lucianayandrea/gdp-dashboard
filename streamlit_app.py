@@ -93,7 +93,7 @@ proteinas = [
     {
         "nombre": "Hemoglobina",
         "descripcion": "La hemoglobina es una proteína encargada de transportar oxígeno en la sangre.",
-        "imagen": "https://lh5.googleusercontent.com/proxy/wyReeTVsruQXaURzd6CJhJOjXJu84_OLYd0qckp1Itge6VdPpg0l3eXNEB6krK7pOF5H1qWgqw5QlHXoTZLuE9gQPCluHw-Z5SsqoHyMl1ir31WQIZvyxZqjdFG27ZM"
+        "imagen": "https://globetechcdn.com/mobile_es_labmedica/images/stories/articles/article_images/2019-08-21/R3z42ndQ.jpeg"
     },
     {
         "nombre": "Quimotripsina",
