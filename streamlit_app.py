@@ -182,15 +182,18 @@ if st.button("Transcribir ADN a ARN"):
 # Diccionario que mapea codones de ARN a sus respectivos códigos de tres letras de aminoácidos
 codon_to_aminoacid = {
     "AUG": "Met", "UUU": "Phe", "UUC": "Phe", "UUA": "Leu", "UUG": "Leu",
-    "CUU": "Leu", "CUC": "Leu", "CUA": "Leu", "CUG": "Leu", "AUU": "Iso",
-    "AUC": "Iso", "AUA": "Iso", "ACU": "Thr", "ACC": "Thr", "ACA": "Thr",
+    "CUU": "Leu", "CUC": "Leu", "CUA": "Leu", "CUG": "Leu", "AUU": "Ile",
+    "AUC": "Ile", "AUA": "Ile", "ACU": "Thr", "ACC": "Thr", "ACA": "Thr",
     "ACG": "Thr", "GUU": "Val", "GUC": "Val", "GUA": "Val", "GUG": "Val",
     "GCU": "Ala", "GCC": "Ala", "GCA": "Ala", "GCG": "Ala", "AAU": "Asn",
     "AAC": "Asn", "AAA": "Lys", "AAG": "Lys", "GAU": "Asp", "GAC": "Asp",
     "GAA": "Glu", "GAG": "Glu", "UGU": "Cys", "UGC": "Cys", "UGA": "Stop",
     "UGG": "Trp", "CGU": "Arg", "CGC": "Arg", "CGA": "Arg", "CGG": "Arg",
     "AGU": "Ser", "AGC": "Ser", "AGA": "Arg", "AGG": "Arg", "GGU": "Gly",
-    "GGC": "Gly", "GGA": "Gly", "GGG": "Gly"
+    "GGC": "Gly", "GGA": "Gly", "GGG": "Gly", "UCU": "Ser", "UCC": "Ser", 
+    "UCA": "Ser", "UCG": "Ser", "CCU": "Pro", "CCC": "Pro", "CCA": "Pro", 
+    "CCG": "Pro", "UAU": "Tyr", "UAC": "Tyr", "UAA": "Stop", "UAG": "Stop",
+    "CAC": "His", "CAU": "His", "CAG": "Gln", 
 }
 
 # Función para dividir la secuencia de ARN en codones (tripletas de bases)
@@ -217,7 +220,7 @@ def traducir_codones_a_codigo(codones):
         if codon in codon_to_aminoacid:
             codigos.append(codon_to_aminoacid[codon])
         else:
-            codigos.append("Stop")  # Si el codón no es válido, consideramos "Stop"
+            codigos.append("Error")  # Si el codón no es válido, consideramos "Stop"
     return codigos
 
 # Título de la aplicación
@@ -253,3 +256,79 @@ if st.button("Traducir ARN a Aminoácidos"):
             st.error("La secuencia de ARN contiene bases inválidas. Solo se permiten A, U, G y C.")
     else:
         st.warning("Por favor, ingresa una secuencia de ARN.")
+
+# -----------------------------------------------------------------------------
+import streamlit as st
+import pandas as pd
+from collections import Counter
+
+# Definir los aminoácidos de "stop"
+STOP_CODES = ["TAG", "TAA", "TGA"]
+
+# Función para calcular los porcentajes de aminoácidos
+def calcular_porcentajes(aminoacidos):
+    """
+    Calcula la frecuencia de cada aminoácido en una cadena y devuelve un DataFrame con los porcentajes.
+    Incluye los códigos de "stop".
+    """
+    # Contar la frecuencia de cada aminoácido
+    contador = Counter(aminoacidos)
+    
+    # Total de aminoácidos en la secuencia
+    total = sum(contador.values())
+    
+    # Crear una lista con los aminoácidos y sus porcentajes
+    porcentaje_aminoacidos = [(aminoacido, count, (count / total) * 100) for aminoacido, count in contador.items()]
+    
+    # Crear un DataFrame con la información
+    df = pd.DataFrame(porcentaje_aminoacidos, columns=["Aminoácido", "Frecuencia", "Porcentaje"])
+    
+    # Ordenar el DataFrame por frecuencia (de mayor a menor)
+    df = df.sort_values(by="Frecuencia", ascending=False)
+    
+    return df
+
+# Título de la aplicación
+st.title("Análisis de Secuencia de Aminoácidos con Códigos de Stop")
+
+# Descripción de la aplicación
+st.write("""
+    Esta herramienta permite ingresar una secuencia de aminoácidos de tres letras (separados por comas) y calcula
+    los porcentajes de frecuencia de cada aminoácido, incluyendo los códigos de "stop" (TAG, TAA, TGA).
+    
+    Ejemplo de secuencia de aminoácidos: Met,Phe,Leu,Met,Leu,STOP,Met.
+    
+    Los códigos de "stop" se contabilizan y muestran en la tabla de resultados.
+    
+    Por favor, asegúrate de ingresar los aminoácidos correctamente.
+""")
+
+# Entrada de texto para que el usuario ingrese la secuencia de aminoácidos
+aminoacidos_input = st.text_input("Introduce la secuencia de aminoácidos (separados por comas):", "")
+
+# Verifica si el usuario ha presionado el botón de análisis
+if st.button("Calcular Porcentajes"):
+    if aminoacidos_input:
+        # Convertimos la entrada en una lista de aminoácidos, separando por comas
+        aminoacidos = aminoacidos_input.split(",")
+        
+        # Verificamos que no haya espacios innecesarios
+        aminoacidos = [aa.strip() for aa in aminoacidos]
+        
+        # Validamos que los aminoácidos sean de tres letras o "STOP"
+        validos = all(len(aa) == 3 or aa == "STOP" for aa in aminoacidos)
+        
+        if validos:
+            # Agregamos los códigos de "stop" como aminoácidos válidos
+            aminoacidos = [aa if aa in STOP_CODES else aa for aa in aminoacidos]
+            
+            # Calculamos los porcentajes
+            df_resultado = calcular_porcentajes(aminoacidos)
+            
+            # Mostrar la tabla de resultados
+            st.write("### Tabla de Porcentajes de Aminoácidos:")
+            st.dataframe(df_resultado)
+        else:
+            st.error("La secuencia debe contener aminoácidos de tres letras válidos o el código 'STOP'.")
+    else:
+        st.warning("Por favor, ingresa una secuencia de aminoácidos.")
