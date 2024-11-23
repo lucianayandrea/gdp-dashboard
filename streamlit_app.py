@@ -40,12 +40,18 @@ st.markdown(
         margin-top: 30px;
         display: inline-block;
         width: 100%;
+        max-width: 600px;  /* Establecer un ancho máximo */
+        margin-left: auto;  /* Alineación automática a la izquierda */
+        margin-right: auto;  /* Alineación automática a la derecha */
     }
 
     /* Estilo para el contenedor del botón */
     .button-container {
         text-align: center;
         margin-top: 20px;
+        display: flex;
+        justify-content: center;  /* Centrado flex */
+        align-items: center;
     }
 
     /* Estilo para el botón */
@@ -127,7 +133,6 @@ st.markdown("""
 # Crear el botón de Streamlit que está dentro del cuadro
 if st.button("Iniciar Análisis"):
     mostrar_proteina_aleatoria()
-
 
 
 # -----------------------------------------------------------------------------
