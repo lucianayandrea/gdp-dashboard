@@ -330,7 +330,7 @@ if st.button("Traducir ARN a Aminoácidos"):
 # Generar gráfica interactiva usando Plotly
 st.markdown("<h3 style='color: purple;'>Gráfica de aminoácidos:</h3>", unsafe_allow_html=True)
 import streamlit as st
-import plotly.express as px
+
 
 # Diccionario de aminoácidos con su código de tres letras
 aminoacidos_validos = [
