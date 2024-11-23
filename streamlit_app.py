@@ -250,7 +250,7 @@ codon_to_aminoacid = {
     "GGC": "Gly", "GGA": "Gly", "GGG": "Gly", "UCU": "Ser", "UCC": "Ser", 
     "UCA": "Ser", "UCG": "Ser", "CCU": "Pro", "CCC": "Pro", "CCA": "Pro", 
     "CCG": "Pro", "UAU": "Tyr", "UAC": "Tyr", "UAA": "Stop", "UAG": "Stop",
-    "CAC": "His", "CAU": "His", "CAG": "Gln", 
+    "CAC": "His", "CAU": "His", "CAG": "Gln", "CAA": "Gln",
 }
 
 # Función para dividir la secuencia de ARN en codones (tripletas de bases)
