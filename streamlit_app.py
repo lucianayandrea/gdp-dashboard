@@ -328,137 +328,87 @@ if st.button("Traducir ARN a Aminoácidos"):
     else:
         st.warning("Por favor, ingresa una secuencia de ARN.")
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard de Aminoácidos</title>
-    <!-- Incluir el CSS de Bootstrap para diseño sencillo -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Incluir el Chart.js para gráficos -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .container {
-            margin-top: 20px;
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h2 class="text-center">Dashboard de Aminoácidos</h2>
+import streamlit as st
+import matplotlib.pyplot as plt
+import seaborn as sns
+from collections import Counter
+
+# Función para contar la frecuencia de los aminoácidos en la cadena ingresada
+def contar_aminoacidos(cadena):
+    # Dividir la cadena por guiones
+    aminoacidos = cadena.split('-')
+    
+    # Contar la frecuencia de cada aminoácido
+    frecuencias = Counter(aminoacidos)
+    
+    # Calcular el porcentaje de cada aminoácido
+    total = sum(frecuencias.values())
+    porcentajes = {amino: (count / total) * 100 for amino, count in frecuencias.items()}
+    
+    return porcentajes
+
+# Función para generar la gráfica según el tipo seleccionado
+def generar_grafico(porcentajes, tipo_grafico):
+    etiquetas = list(porcentajes.keys())
+    valores = list(porcentajes.values())
+    
+    plt.figure(figsize=(8, 6))
+    
+    if tipo_grafico == 'Barras':
+        sns.barplot(x=etiquetas, y=valores, palette="viridis")
+        plt.title('Distribución de Aminoácidos (Barras)', fontsize=16)
+        plt.xlabel('Aminoácidos', fontsize=12)
+        plt.ylabel('Porcentaje', fontsize=12)
         
-        <!-- Formulario para ingresar la cadena de aminoácidos -->
-        <div class="form-group">
-            <label for="cadenaInput">Ingresa una cadena de aminoácidos (código de 3 letras):</label>
-            <input type="text" class="form-control" id="cadenaInput" placeholder="Ejemplo: ALA-VAL-GLY" />
-        </div>
+    elif tipo_grafico == 'Circular':
+        plt.pie(valores, labels=etiquetas, autopct='%1.1f%%', startangle=90, colors=sns.color_palette("Set2", len(etiquetas)))
+        plt.title('Distribución de Aminoácidos (Circular)', fontsize=16)
         
-        <!-- Selector de tipo de gráfico -->
-        <div class="form-group">
-            <label for="graficoTipo">Selecciona el tipo de gráfico:</label>
-            <select class="form-control" id="graficoTipo">
-                <option value="bar">Gráfico de Barras</option>
-                <option value="pie">Gráfico Circular</option>
-                <option value="line">Gráfico de Líneas</option>
-            </select>
-        </div>
+    elif tipo_grafico == 'Líneas':
+        sns.lineplot(x=etiquetas, y=valores, marker='o', color='b')
+        plt.title('Distribución de Aminoácidos (Líneas)', fontsize=16)
+        plt.xlabel('Aminoácidos', fontsize=12)
+        plt.ylabel('Porcentaje', fontsize=12)
+
+    # Mostrar la gráfica
+    st.pyplot(plt)
+
+# Crear el layout en Streamlit
+st.set_page_config(page_title="Dashboard de Aminoácidos", page_icon="🧬", layout="wide")
+st.title("Análisis de Aminoácidos en Cadena")
+
+# Formulario de entrada de la cadena de aminoácidos
+cadena_input = st.text_input("Ingresa una cadena de aminoácidos en formato de tres letras (Ejemplo: ALA-VAL-GLY):", "")
+
+# Validación de la cadena de aminoácidos
+if cadena_input:
+    # Convertir la cadena a mayúsculas y quitar espacios
+    cadena_input = cadena_input.replace(" ", "").upper()
+
+    # Asegurarse de que solo contenga aminoácidos válidos (A, T, C, G en este caso)
+    aminoacidos_validos = {"ALA", "VAL", "GLY", "LEU", "ILE", "PHE", "TRP", "PRO", "CYS", "MET", "SER", "THR", "ASN", "GLN", "ASP", "GLU", "LYS", "ARG", "HIS", "TYR"}
+
+    aminoacidos_invalidos = [amino for amino in cadena_input.split('-') if amino not in aminoacidos_validos]
+    
+    if aminoacidos_invalidos:
+        st.error(f"Los siguientes aminoácidos no son válidos: {', '.join(aminoacidos_invalidos)}. Por favor ingresa una cadena válida.")
+    else:
+        # Contar la frecuencia de aminoácidos
+        porcentajes = contar_aminoacidos(cadena_input)
         
-        <!-- Botón para procesar los datos -->
-        <button class="btn btn-primary" id="generarGraficoBtn">Generar Gráfico</button>
+        # Mostrar el resumen de los aminoácidos con su porcentaje
+        st.write("### Resumen de los Aminoácidos Ingresados (Porcentaje)")
+        for amino, porcentaje in porcentajes.items():
+            st.write(f"{amino}: {porcentaje:.2f}%")
         
-        <!-- Contenedor para el gráfico -->
-        <div class="mt-4">
-            <canvas id="graficoCanvas"></canvas>
-        </div>
-    </div>
+        # Selector para elegir el tipo de gráfico
+        tipo_grafico = st.selectbox("Selecciona el tipo de gráfico para visualizar los porcentajes de los aminoácidos:", ['Barras', 'Circular', 'Líneas'])
+        
+        # Generar y mostrar el gráfico
+        generar_grafico(porcentajes, tipo_grafico)
 
-    <!-- Incluir los scripts de JavaScript -->
-    <script>
-        // Función para contar la frecuencia de aminoácidos en la cadena
-        function contarAminoacidos(cadena) {
-            let aminoacidos = cadena.split('-');  // Divide la cadena por los guiones
-            let frecuencias = {};
-
-            aminoacidos.forEach(amino => {
-                if (frecuencias[amino]) {
-                    frecuencias[amino]++;
-                } else {
-                    frecuencias[amino] = 1;
-                }
-            });
-
-            return frecuencias;
-        }
-
-        // Función para generar el gráfico
-        function generarGrafico() {
-            const cadena = document.getElementById("cadenaInput").value;
-            const graficoTipo = document.getElementById("graficoTipo").value;
-
-            if (!cadena) {
-                alert("Por favor, ingresa una cadena de aminoácidos.");
-                return;
-            }
-
-            // Contamos los aminoácidos en la cadena
-            const frecuencias = contarAminoacidos(cadena);
-            
-            // Preparamos los datos para el gráfico
-            const etiquetas = Object.keys(frecuencias);
-            const valores = Object.values(frecuencias);
-
-            // Configuración del gráfico
-            const config = {
-                type: graficoTipo, // tipo de gráfico (bar, pie, line)
-                data: {
-                    labels: etiquetas,
-                    datasets: [{
-                        label: 'Frecuencia de Aminoácidos',
-                        data: valores,
-                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                        borderColor: 'rgba(54, 162, 235, 1)',
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            position: 'top',
-                        },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    return `${context.label}: ${context.raw}`;
-                                }
-                            }
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
-                    }
-                }
-            };
-
-            // Renderizamos el gráfico
-            const ctx = document.getElementById('graficoCanvas').getContext('2d');
-            new Chart(ctx, config);
-        }
-
-        // Agregar el evento al botón
-        document.getElementById("generarGraficoBtn").addEventListener("click", generarGrafico);
-    </script>
-</body>
-</html>
+else:
+    st.warning("Por favor ingresa una cadena de aminoácidos válida en el formato de tres letras (Ejemplo: ALA-VAL-GLY).")
 
 
 
