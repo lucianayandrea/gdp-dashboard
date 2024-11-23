@@ -175,6 +175,7 @@ if st.button("Transcribir ADN a ARN"):
 
 # Diccionario que mapea codones de ARN a sus respectivos códigos de tres letras de aminoácidos
 codon_to_aminoacid = {
+    codon_to_aminoacid = {
     "AUG": "Met", "UUU": "Phe", "UUC": "Phe", "UUA": "Leu", "UUG": "Leu",
     "CUU": "Leu", "CUC": "Leu", "CUA": "Leu", "CUG": "Leu", "AUU": "Iso",
     "AUC": "Iso", "AUA": "Iso", "ACU": "Thr", "ACC": "Thr", "ACA": "Thr",
@@ -183,8 +184,9 @@ codon_to_aminoacid = {
     "AAC": "Asn", "AAA": "Lys", "AAG": "Lys", "GAU": "Asp", "GAC": "Asp",
     "GAA": "Glu", "GAG": "Glu", "UGU": "Cys", "UGC": "Cys", "UGA": "Stop",
     "UGG": "Trp", "CGU": "Arg", "CGC": "Arg", "CGA": "Arg", "CGG": "Arg",
-    "AGU": "Ser", "AGC": "Ser", "AGA": "Arg", "AGG": "Arg", "GGU": "
-
+    "AGU": "Ser", "AGC": "Ser", "AGA": "Arg", "AGG": "Arg", "GGU": "Gly",  # Aquí faltaba cerrar la cadena "GGU": "Gly"
+    "GGC": "Gly", "GGA": "Gly", "GGG": "Gly"
+}
             st.error("La secuencia de ARN contiene bases inválidas. Solo se permiten A, U, G y C.")
     else:
         st.warning("Por favor, ingresa una secuencia de ARN.")
