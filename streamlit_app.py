@@ -74,20 +74,56 @@ Bienvenido al **Dashboard de Bioinformática**. Este es un entorno interactivo d
 Aquí podrás realizar diversos análisis y visualizar resultados de manera intuitiva. ¡Diviértete explorando el mundo de la genética y el ADN!
 """)
 
-# Decoración con imágenes de ADN (puedes usar imágenes de tu preferencia)
+# Decoración con imágenes de ADN
 st.markdown('<div class="dna-decoration"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/3d_dna.png/300px-3d_dna.png" alt="DNA Helix"></div>', unsafe_allow_html=True)
 
-# Sección para agregar una funcionalidad o interacción
+# Lista de proteínas, sus descripciones y URLs de imágenes representativas
+proteinas = [
+    {
+        "nombre": "Hemoglobina",
+        "descripcion": "La hemoglobina es una proteína encargada de transportar oxígeno en la sangre.",
+        "imagen": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Hemoglobin.png"
+    },
+    {
+        "nombre": "Quimotripsina",
+        "descripcion": "La quimotripsina es una enzima digestiva que ayuda a descomponer proteínas en el intestino.",
+        "imagen": "https://upload.wikimedia.org/wikipedia/commons/5/52/Chymotrypsin.svg"
+    },
+    {
+        "nombre": "Dinamina",
+        "descripcion": "La dinamina es una proteína involucrada en la fisión de vesículas intracelulares.",
+        "imagen": "https://upload.wikimedia.org/wikipedia/commons/6/67/Dynamin.png"
+    },
+    {
+        "nombre": "Colágeno",
+        "descripcion": "El colágeno es una proteína estructural que proporciona soporte a los tejidos conectivos.",
+        "imagen": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Collagen_protein_structure.png"
+    },
+    {
+        "nombre": "Actina",
+        "descripcion": "La actina es una proteína involucrada en la contracción muscular y en la forma celular.",
+        "imagen": "https://upload.wikimedia.org/wikipedia/commons/3/32/Actin_structure.png"
+    }
+]
+
+# Función para mostrar la proteína aleatoria
+def mostrar_proteina_aleatoria():
+    proteina = random.choice(proteinas)
+    st.markdown(f"### {proteina['nombre']}")
+    st.write(proteina['descripcion'])
+    st.image(proteina['imagen'], caption=proteina['nombre'], use_column_width=True)
+
+# Sección para el botón de análisis
 st.markdown("""
 <div class="content">
     <h2>¡Explora el ADN y la Genética!</h2>
-    <p>Haz clic en el siguiente botón para descubrir una nueva función de análisis genético.</p>
-    <button class="button" onclick="alert('Análisis genético en proceso...')">Iniciar Análisis</button>
+    <p>Haz clic en el siguiente botón para descubrir una nueva proteína y su información.</p>
 </div>
 """, unsafe_allow_html=True)
 
-# Puedes agregar más interacciones, gráficos o funcionalidades específicas aquí según lo que necesites
-
+# Crear el botón para mostrar una proteína aleatoria
+if st.button("Iniciar Análisis"):
+    mostrar_proteina_aleatoria()
 # -----------------------------------------------------------------------------
 # Declare some useful functions.
 
