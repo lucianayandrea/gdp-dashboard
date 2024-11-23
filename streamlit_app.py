@@ -1,5 +1,7 @@
 import streamlit as st
 import random
+import streamlit as st
+import random
 
 # Personalización de la página con CSS
 st.markdown(
@@ -37,6 +39,10 @@ st.markdown(
         margin-top: 30px;
     }
 
+    .button-container {
+        text-align: center;
+    }
+
     .button {
         background-color: #2e8b57;
         color: white;
@@ -53,9 +59,6 @@ st.markdown(
         background-color: #1f5e3f;
     }
 
-    .button-container {
-        text-align: center;
-    }
     </style>
     """, unsafe_allow_html=True
 )
@@ -113,9 +116,12 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# Crear el botón para mostrar una proteína aleatoria dentro de Streamlit
+# Aquí es donde se colocará el botón "Iniciar Análisis"
+# Este botón es de Streamlit y está dentro del cuadro de contenido
 if st.button("Iniciar Análisis"):
     mostrar_proteina_aleatoria()
+
+
 
 # -----------------------------------------------------------------------------
 # Draw the actual page
