@@ -327,7 +327,8 @@ if st.button("Traducir ARN a Aminoácidos"):
     else:
         st.warning("Por favor, ingresa una secuencia de ARN.")
 
-
+# Generar gráfica interactiva usando Plotly
+st.markdown("<h3 style='color: purple;'>Gráfica de aminoácidos:</h3>", unsafe_allow_html=True)
 import streamlit as st
 import plotly.express as px
 
