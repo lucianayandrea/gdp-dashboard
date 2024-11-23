@@ -328,7 +328,137 @@ if st.button("Traducir ARN a Aminoácidos"):
     else:
         st.warning("Por favor, ingresa una secuencia de ARN.")
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Aminoácidos</title>
+    <!-- Incluir el CSS de Bootstrap para diseño sencillo -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Incluir el Chart.js para gráficos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center">Dashboard de Aminoácidos</h2>
+        
+        <!-- Formulario para ingresar la cadena de aminoácidos -->
+        <div class="form-group">
+            <label for="cadenaInput">Ingresa una cadena de aminoácidos (código de 3 letras):</label>
+            <input type="text" class="form-control" id="cadenaInput" placeholder="Ejemplo: ALA-VAL-GLY" />
+        </div>
+        
+        <!-- Selector de tipo de gráfico -->
+        <div class="form-group">
+            <label for="graficoTipo">Selecciona el tipo de gráfico:</label>
+            <select class="form-control" id="graficoTipo">
+                <option value="bar">Gráfico de Barras</option>
+                <option value="pie">Gráfico Circular</option>
+                <option value="line">Gráfico de Líneas</option>
+            </select>
+        </div>
+        
+        <!-- Botón para procesar los datos -->
+        <button class="btn btn-primary" id="generarGraficoBtn">Generar Gráfico</button>
+        
+        <!-- Contenedor para el gráfico -->
+        <div class="mt-4">
+            <canvas id="graficoCanvas"></canvas>
+        </div>
+    </div>
 
+    <!-- Incluir los scripts de JavaScript -->
+    <script>
+        // Función para contar la frecuencia de aminoácidos en la cadena
+        function contarAminoacidos(cadena) {
+            let aminoacidos = cadena.split('-');  // Divide la cadena por los guiones
+            let frecuencias = {};
+
+            aminoacidos.forEach(amino => {
+                if (frecuencias[amino]) {
+                    frecuencias[amino]++;
+                } else {
+                    frecuencias[amino] = 1;
+                }
+            });
+
+            return frecuencias;
+        }
+
+        // Función para generar el gráfico
+        function generarGrafico() {
+            const cadena = document.getElementById("cadenaInput").value;
+            const graficoTipo = document.getElementById("graficoTipo").value;
+
+            if (!cadena) {
+                alert("Por favor, ingresa una cadena de aminoácidos.");
+                return;
+            }
+
+            // Contamos los aminoácidos en la cadena
+            const frecuencias = contarAminoacidos(cadena);
+            
+            // Preparamos los datos para el gráfico
+            const etiquetas = Object.keys(frecuencias);
+            const valores = Object.values(frecuencias);
+
+            // Configuración del gráfico
+            const config = {
+                type: graficoTipo, // tipo de gráfico (bar, pie, line)
+                data: {
+                    labels: etiquetas,
+                    datasets: [{
+                        label: 'Frecuencia de Aminoácidos',
+                        data: valores,
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return ${context.label}: ${context.raw};
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            };
+
+            // Renderizamos el gráfico
+            const ctx = document.getElementById('graficoCanvas').getContext('2d');
+            new Chart(ctx, config);
+        }
+
+        // Agregar el evento al botón
+        document.getElementById("generarGraficoBtn").addEventListener("click", generarGrafico);
+    </script>
+</body>
+</html>
 
 
 
