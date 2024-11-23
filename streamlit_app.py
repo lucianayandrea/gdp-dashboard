@@ -2,6 +2,19 @@ import streamlit as st
 import random
 
 # Personalización de la página con CSS
+mport streamlit as st
+
+# Personalización de la página con CSS
+st.markdown(
+    """
+    <style>
+    body {
+        background-color: #DFE9F5;  /* Cambia el valor aquí por cualquier color que desees */
+    }
+    </style>
+    """, unsafe_allow_html=True
+)
+
 st.markdown(
     """
     <style>
