@@ -3,7 +3,18 @@ import random
 
 # Personalización de la página con CSS
 
+import streamlit as st
 
+# Personalización de la página con CSS
+st.markdown(
+    """
+    <style>
+    body {
+        background-color: #b3cde0;  /* Azul bebé */
+        color: #333333;  /* Color de texto oscuro para contraste */
+    }
+    </style>
+    """, unsafe_allow_html=True
 # Personalización de la página con CSS
 st.markdown(
     """
