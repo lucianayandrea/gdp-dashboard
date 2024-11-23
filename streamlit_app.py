@@ -14,7 +14,6 @@ import streamlit as st
 
 import streamlit as st
 import random
-import ploty
 
 # Personalización de la página
 st.markdown(
@@ -328,76 +327,5 @@ if st.button("Traducir ARN a Aminoácidos"):
     else:
         st.warning("Por favor, ingresa una secuencia de ARN.")
 
-import streamlit as st
-import plotly.express as px
-from collections import Counter
-
-# Título de la aplicación
-st.title("Dashboard de Aminoácidos")
-
-# Descripción
-st.write("""
-Este dashboard permite ingresar una cadena de aminoácidos en formato de código de tres letras (por ejemplo: ALA-VAL-GLY),
-y genera una gráfica que muestra el porcentaje de cada tipo de aminoácido presente en la cadena.
-Puedes elegir entre diferentes tipos de gráficos para visualizar los resultados.
-""")
-
-# Ingreso de la cadena de aminoácidos
-cadena = st.text_input("Ingresa una cadena de aminoácidos (separados por guiones, por ejemplo: ALA-VAL-GLY):")
-
-# Verificación de que la cadena no esté vacía
-if cadena:
-    # Convertir la cadena en una lista de aminoácidos
-    aminoacidos = cadena.split("-")
-    
-    # Contar la frecuencia de cada aminoácido
-    frecuencias = Counter(aminoacidos)
-    
-    # Crear un DataFrame para facilitar la visualización
-    etiquetas = list(frecuencias.keys())
-    valores = list(frecuencias.values())
-    
-    # Calcular el porcentaje de cada aminoácido
-    total_aminoacidos = sum(valores)
-    porcentajes = [val / total_aminoacidos * 100 for val in valores]
-    
-    # Mostrar los datos de la cadena ingresada
-    st.write("### Frecuencia de Aminoácidos:")
-    st.write(f"Total de aminoácidos: {total_aminoacidos}")
-    st.write("Porcentaje de cada aminoácido:")
-    st.write(dict(zip(etiquetas, porcentajes)))
-
-    # Selector para elegir el tipo de gráfico
-    tipo_grafico = st.selectbox("Selecciona el tipo de gráfico:", ["Gráfico de Barras", "Gráfico Circular", "Gráfico de Líneas"])
-
-    # Crear gráficos dependiendo de la elección
-    if tipo_grafico == "Gráfico de Barras":
-        fig = px.bar(
-            x=etiquetas,
-            y=porcentajes,
-            labels={'x': 'Aminoácido', 'y': 'Porcentaje'},
-            title="Porcentaje de Aminoácidos (Gráfico de Barras)"
-        )
-        st.plotly_chart(fig)
-
-    elif tipo_grafico == "Gráfico Circular":
-        fig = px.pie(
-            names=etiquetas,
-            values=porcentajes,
-            title="Porcentaje de Aminoácidos (Gráfico Circular)"
-        )
-        st.plotly_chart(fig)
-
-    elif tipo_grafico == "Gráfico de Líneas":
-        fig = px.line(
-            x=etiquetas,
-            y=porcentajes,
-            labels={'x': 'Aminoácido', 'y': 'Porcentaje'},
-            title="Porcentaje de Aminoácidos (Gráfico de Líneas)"
-        )
-        st.plotly_chart(fig)
-
-else:
-    st.write("Por favor, ingresa una cadena de aminoácidos para generar el gráfico.")
 
 
