@@ -1,18 +1,4 @@
 import streamlit as st
-import pandas as pd
-import math
-from pathlib import Path
-import pandas as pd
-import streamlit as st
-
-# Set the title and favicon that appear in the Browser's tab bar.
-st.set_page_config(
-    page_title='Proyecto Bioinformatica',
-    page_icon=':earth_world:', # This is an emoji shortcode. Could be a URL too.
-)
-import streamlit as st
-
-import streamlit as st
 import random
 
 # Personalización de la página
@@ -77,9 +63,6 @@ Bienvenido al **Proyecto de Bioinformática**. Este es un entorno interactivo do
 Aquí podrás realizar diversos análisis y visualizar resultados de manera intuitiva. ¡Diviértete explorando el mundo de la genética y el ADN!
 """)
 
-# Decoración con imágenes de ADN
-
-
 # Lista de proteínas, sus descripciones y URLs de imágenes representativas
 proteinas = [
     {
@@ -128,30 +111,10 @@ st.markdown("""
 if st.button("Iniciar Análisis"):
     mostrar_proteina_aleatoria()
 
-# -----------------------------------------------------------------------------
-# Declare some useful functions.
 
-@st.cache_data
-def get_gdp_data():
-    """Grab GDP data from a CSV file.
-# -----------------------------------------------------------------------------
-# Draw the actual page
+# -------------------------------------------------------------------------
+# Transcripción de ADN a ARN
 
-# Set the title that appears at the top of the page.
-'''
-# 🦾 Transcriptor ADN, ARN.
-
-
-La bioinformática es una disciplina interdisciplinaria que emplea técnicas computacionales y estadisticas 
-para resolver problemas biologicos, especialmente aquellos relacionados con la biologia molecular y genética 
-Una de las tareas fundamentales en el ámbito de la bioinformatica es la comprensión y manipulación de secuencias biológicas 
-como las del ADN,ARN y proteinas. En este contexto, la traduccion de ADN representa un un proceso clave dento de la 
-expresion genética contenida en el ADN es convertida en proteinas funcionales, a través de la intermediación del ARN mensajero.
-'''
-
-import streamlit as st
-
-# Función para transcribir ADN a ARN
 def transcribir_adn_a_arn(adn):
     """
     Convierte una secuencia de ADN en ARN, reemplazando la Timina (T) por Uracilo (U).
@@ -168,18 +131,19 @@ def transcribir_adn_a_arn(adn):
     
     return arn
 
+
 # Título de la aplicación
 st.title("Transcripción de ADN a ARN")
 
 # Descripción de la aplicación
 st.write("""
-    Aqui se convierte una secuencia de ADN a ARN.
+    Aquí se convierte una secuencia de ADN a ARN.
     
     En el proceso de transcripción, la base Timina (T) del ADN se reemplaza por Uracilo (U) en el ARN.
 """)
 
 # Ejemplo de secuencia de ADN humana
-adn_ejemplo = "ATGAGTGGCGTGGCGGTCCAGGAGGAGCTCAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGA"
+adn_ejemplo = "ATGAGTGGCGTGGCGGTCCAGGAGGAGCTCAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGA"
 st.write("Ejemplo de secuencia de ADN:")
 st.code(adn_ejemplo)
 
@@ -206,7 +170,8 @@ if st.button("Transcribir ADN a ARN"):
     else:
         st.warning("Por favor, ingresa una secuencia de ADN.")
 
-import streamlit as st
+# -------------------------------------------------------------------------
+# Traducción de ARN a Aminoácidos
 
 # Diccionario que mapea codones de ARN a sus respectivos códigos de tres letras de aminoácidos
 codon_to_aminoacid = {
@@ -218,67 +183,8 @@ codon_to_aminoacid = {
     "AAC": "Asn", "AAA": "Lys", "AAG": "Lys", "GAU": "Asp", "GAC": "Asp",
     "GAA": "Glu", "GAG": "Glu", "UGU": "Cys", "UGC": "Cys", "UGA": "Stop",
     "UGG": "Trp", "CGU": "Arg", "CGC": "Arg", "CGA": "Arg", "CGG": "Arg",
-    "AGU": "Ser", "AGC": "Ser", "AGA": "Arg", "AGG": "Arg", "GGU": "Gly",
-    "GGC": "Gly", "GGA": "Gly", "GGG": "Gly"
-}
+    "AGU": "Ser", "AGC": "Ser", "AGA": "Arg", "AGG": "Arg", "GGU": "
 
-# Función para dividir la secuencia de ARN en codones (tripletas de bases)
-def dividir_en_codones(arn):
-    """
-    Toma una secuencia de ARN y la divide en codones (tripletas de bases).
-    Devuelve una lista de codones.
-    """
-    codones = []
-    for i in range(0, len(arn), 3):  # Dividimos el ARN en fragmentos de 3 bases
-        codon = arn[i:i+3]
-        # Aseguramos que cada codón tenga exactamente 3 bases
-        if len(codon) == 3:
-            codones.append(codon)
-    return codones
-
-# Función para traducir codones a códigos de tres letras de aminoácidos
-def traducir_codones_a_codigo(codones):
-    """
-    Toma una lista de codones y los traduce a códigos de tres letras de aminoácidos utilizando el diccionario codon_to_aminoacid.
-    """
-    codigos = []
-    for codon in codones:
-        if codon in codon_to_aminoacid:
-            codigos.append(codon_to_aminoacid[codon])
-        else:
-            codigos.append("Stop")  # Si el codón no es válido, consideramos "Stop"
-    return codigos
-
-# Título de la aplicación
-st.title("Transcripción de ARN a Aminoácidos")
-
-# Descripción de la aplicación
-st.write("""Esta aplicación toma una secuencia de ARN, la divide en codones y luego la traduce a aminoácidos. Un codón es un conjunto de tres nucleótidos que codifica un aminoácido.
-""")
-
-# Entrada de texto para que el usuario ingrese una secuencia de ARN
-arn = st.text_input("Introduce la secuencia de ARN (solo A, U, G, C):", "")
-
-# Verifica si el usuario ha presionado el botón de transcripción
-if st.button("Traducir ARN a Aminoácidos"):
-    if arn:
-        # Convertimos la secuencia de ARN a mayúsculas para evitar problemas de formato
-        arn = arn.upper()
-
-        # Comprobar que la secuencia solo contiene bases válidas de ARN (A, U, G, C)
-        if all(base in 'AUGC' for base in arn):
-            # Llamamos a la función para dividir el ARN en codones
-            codones = dividir_en_codones(arn)
-            
-            # Llamamos a la función para traducir los codones a los códigos de aminoácidos
-            codigos_aminoacidos = traducir_codones_a_codigo(codones)
-            
-            # Mostrar los resultados
-            if codigos_aminoacidos:
-                st.success(f"Códigos de aminoácidos obtenidos: {', '.join(codigos_aminoacidos)}")
-            else:
-                st.warning("La secuencia de ARN es demasiado corta para obtener aminoácidos válidos.")
-        else:
             st.error("La secuencia de ARN contiene bases inválidas. Solo se permiten A, U, G y C.")
     else:
         st.warning("Por favor, ingresa una secuencia de ARN.")
