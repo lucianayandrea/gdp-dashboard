@@ -183,7 +183,7 @@ gdp_df = get_gdp_data()
 
 # Set the title that appears at the top of the page.
 '''
-# 🧬 Transcriptor ADN, ARN.
+# 🦾 Transcriptor ADN, ARN.
 
 
 La bioinformática es una disciplina interdisciplinaria que emplea técnicas computacionales y estadisticas 
