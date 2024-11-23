@@ -9,7 +9,7 @@ st.markdown(
     """
     <style>
     body {
-        background-color: #DFE9F8;  /* Cambia el valor aquí por cualquier color que desees */
+        background-color: #90B1DB;  /* Cambia el valor aquí por cualquier color que desees */
     }
     </style>
     """, unsafe_allow_html=True
