@@ -317,10 +317,8 @@ def calcular_porcentajes(aminoacidos):
 st.title("Análisis de Secuencia de Aminoácidos con Códigos de Stop")
 
 # Descripción de la aplicación
-st.write("""
-    Esta herramienta permite ingresar una secuencia de aminoácidos de tres letras (separados por comas) y calcula
-    los porcentajes de frecuencia de cada aminoácido.
-    """)
+st.write("""Esta herramienta permite ingresar una secuencia de aminoácidos de tres letras (separados por comas) y calcula
+    los porcentajes de frecuencia de cada aminoácido.""")
 
 # Entrada de texto para que el usuario ingrese la secuencia de aminoácidos
 aminoacidos_input = st.text_input("Introduce la secuencia de aminoácidos (separados por comas):", "")
