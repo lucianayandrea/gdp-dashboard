@@ -343,7 +343,7 @@ if st.button("Traducir ARN a Aminoácidos"):
             font-family: Arial, sans-serif;
         }
         .container {
-            margin-top: 50px;
+            margin-top: 30px;
         }
         .form-group {
             margin-bottom: 20px;
