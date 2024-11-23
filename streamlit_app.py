@@ -14,7 +14,7 @@ import streamlit as st
 
 import streamlit as st
 import random
-
+import ploty
 
 # Personalización de la página
 st.markdown(
