@@ -60,7 +60,6 @@ st.title("🧬 ADN, ARN y Proteinas 🧬")
 # Sección de bienvenida
 st.write("""
 Bienvenido al **Proyecto de Bioinformática**. Este es un entorno interactivo donde exploramos la ciencia de los datos biológicos.
-Aquí podrás realizar diversos análisis y visualizar resultados de manera intuitiva. ¡Diviértete explorando el mundo de la genética y el ADN!
 """)
 
 # Lista de proteínas, sus descripciones y URLs de imágenes representativas
@@ -122,8 +121,8 @@ if st.button("Iniciar Análisis"):
 La bioinformática es una disciplina interdisciplinaria que emplea técnicas computacionales y estadisticas 
 para resolver problemas biologicos, especialmente aquellos relacionados con la biologia molecular y genética 
 Una de las tareas fundamentales en el ámbito de la bioinformatica es la comprensión y manipulación de secuencias biológicas 
-como las del ADN,ARN y proteinas. En este contexto, la traduccion de ADN representa un un proceso clave dento de la 
-expresion genética contenida en el ADN es convertida en proteinas funcionales, a través de la intermediación del ARN mensajero.
+como las del ADN, ARN, aminoacidos y proteinas. En este contexto, la traduccion de ADN representa un un proceso clave dento de la 
+expresion genética contenida en el ADN es convertida en proteinas funcionales, a través de la intermediación del ARN mensajero a aminoacidos.
 '''
 
 # -----------------------------------------------------------------------------
