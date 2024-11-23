@@ -355,3 +355,4 @@ if st.button("Calcular Porcentajes"):
     else:
         st.warning("Por favor, ingresa una secuencia de aminoácidos.")
 
+
