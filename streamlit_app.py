@@ -70,8 +70,7 @@ st.title("🧬 ADN, ARN y Proteínas 🧬")
 
 # Sección de bienvenida
 st.write("""
-Bienvenido al **Proyecto de Bioinformática**. Este es un entorno interactivo donde exploramos la ciencia de los datos biológicos.
-Aquí podrás realizar diversos análisis y visualizar resultados de manera intuitiva. ¡Diviértete explorando el mundo de la genética y el ADN!
+Bienvenido al **Proyecto de Bioinformática**.
 """)
 
 # Lista de proteínas, sus descripciones y URLs de imágenes representativas
