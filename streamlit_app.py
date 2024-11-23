@@ -1,7 +1,7 @@
 import streamlit as st
 import random
 
-# Personalización de la página
+# Personalización de la página con CSS
 st.markdown(
     """
     <style>
@@ -92,7 +92,7 @@ proteinas = [
     }
 ]
 
-# Función para mostrar la proteína aleatoria
+# Función para mostrar una proteína aleatoria
 def mostrar_proteina_aleatoria():
     proteina = random.choice(proteinas)
     st.markdown(f"### {proteina['nombre']}")
@@ -111,39 +111,33 @@ st.markdown("""
 if st.button("Iniciar Análisis"):
     mostrar_proteina_aleatoria()
 
-
-# -------------------------------------------------------------------------
-# Transcripción de ADN a ARN
-
+# -----------------------------------------------------------------------------
+# Función para transcribir ADN a ARN
 def transcribir_adn_a_arn(adn):
     """
     Convierte una secuencia de ADN en ARN, reemplazando la Timina (T) por Uracilo (U).
     """
-    # Diccionario de sustituciones de ADN a ARN
     transcripcion = {'A': 'A', 'T': 'U', 'G': 'C', 'C': 'G'}
-    
     arn = ''
     for base in adn:
         if base in transcripcion:
             arn += transcripcion[base]
         else:
             return None  # Si hay un carácter no válido, retornamos None
-    
     return arn
-
 
 # Título de la aplicación
 st.title("Transcripción de ADN a ARN")
 
 # Descripción de la aplicación
 st.write("""
-    Aquí se convierte una secuencia de ADN a ARN.
+    Esta herramienta convierte una secuencia de ADN a ARN.
     
     En el proceso de transcripción, la base Timina (T) del ADN se reemplaza por Uracilo (U) en el ARN.
 """)
 
 # Ejemplo de secuencia de ADN humana
-adn_ejemplo = "ATGAGTGGCGTGGCGGTCCAGGAGGAGCTCAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGA"
+adn_ejemplo = "ATGAGTGGCGTGGCGGTCCAGGAGGAGCTCAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGA"
 st.write("Ejemplo de secuencia de ADN:")
 st.code(adn_ejemplo)
 
@@ -160,7 +154,6 @@ if st.button("Transcribir ADN a ARN"):
         if all(base in 'ATGC' for base in adn_usuario):
             # Llamamos a la función de transcripción
             arn_resultado = transcribir_adn_a_arn(adn_usuario)
-            
             if arn_resultado:
                 st.success(f"La secuencia de ARN transcrita es: {arn_resultado}")
             else:
@@ -170,12 +163,9 @@ if st.button("Transcribir ADN a ARN"):
     else:
         st.warning("Por favor, ingresa una secuencia de ADN.")
 
-# -------------------------------------------------------------------------
-# Traducción de ARN a Aminoácidos
-
-# Diccionario que mapea codones de ARN a sus respectivos códigos de tres letras de aminoácidos
-codon_to_aminoacid = 
-    codon_to_aminoacid = {
+# -----------------------------------------------------------------------------
+# Diccionario de codones de ARN a aminoácidos
+codon_to_aminoacid = {
     "AUG": "Met", "UUU": "Phe", "UUC": "Phe", "UUA": "Leu", "UUG": "Leu",
     "CUU": "Leu", "CUC": "Leu", "CUA": "Leu", "CUG": "Leu", "AUU": "Iso",
     "AUC": "Iso", "AUA": "Iso", "ACU": "Thr", "ACC": "Thr", "ACA": "Thr",
@@ -183,9 +173,8 @@ codon_to_aminoacid =
     "GCU": "Ala", "GCC": "Ala", "GCA": "Ala", "GCG": "Ala", "AAU": "Asn",
     "AAC": "Asn", "AAA": "Lys", "AAG": "Lys", "GAU": "Asp", "GAC": "Asp",
     "GAA": "Glu", "GAG": "Glu", "UGU": "Cys", "UGC": "Cys", "UGA": "Stop",
-    "UGG": "Trp", "CGU": "Arg", "CGC": "Arg", "CGA": "Arg", "CGG": "Arg",
-    "AGU": "Ser", "AGC": "Ser", "AGA": "Arg", "AGG": "Arg", "GGU": "Gly",  # Aquí faltaba cerrar la cadena "GGU": "Gly"
-    "GGC": "Gly", "GGA": "Gly", "GGG": "Gly"
+    "UG
+
 }
             st.error("La secuencia de ARN contiene bases inválidas. Solo se permiten A, U, G y C.")
     else:
