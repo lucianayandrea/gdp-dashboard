@@ -111,19 +111,46 @@ if st.button("Iniciar Análisis"):
     mostrar_proteina_aleatoria()
 
 # -----------------------------------------------------------------------------
-# Draw the actual page
+import streamlit as st
 
-# Set the title that appears at the top of the page.
-'''
-# 🦾 Transcriptor ADN, ARN.
+# Personalización de la página con CSS
+st.markdown(
+    """
+    <style>
+    body {
+        background-color: #f0f8ff;  /* Fondo azul claro */
+        font-family: 'Arial', sans-serif;
+    }
 
+    h1 {
+        color: #2e8b57;  /* Verde oscuro */
+        text-align: center;  /* Centrado del título */
+    }
 
-La bioinformática es una disciplina interdisciplinaria que emplea técnicas computacionales y estadisticas 
-para resolver problemas biologicos, especialmente aquellos relacionados con la biologia molecular y genética 
-Una de las tareas fundamentales en el ámbito de la bioinformatica es la comprensión y manipulación de secuencias biológicas 
-como las del ADN, ARN, aminoacidos y proteinas. En este contexto, la traduccion de ADN representa un un proceso clave dento de la 
-expresion genética contenida en el ADN es convertida en proteinas funcionales, a través de la intermediación del ARN mensajero a aminoacidos.
-'''
+    .description {
+        color: #333333;  /* Texto en gris oscuro */
+        font-size: 18px;
+        text-align: center;  /* Centrado del texto */
+        max-width: 800px;  /* Controlar el ancho del texto */
+        margin: 20px auto;  /* Centrar el texto con margen */
+    }
+    </style>
+    """, unsafe_allow_html=True
+)
+
+# Título de la página
+st.markdown("<h1>🦾 Transcriptor ADN, ARN 🦾</h1>", unsafe_allow_html=True)
+
+# Texto descriptivo centrado debajo del título
+st.markdown("""
+<div class="description">
+La bioinformática es una disciplina interdisciplinaria que emplea técnicas computacionales y estadísticas 
+para resolver problemas biológicos, especialmente aquellos relacionados con la biología molecular y genética.
+Una de las tareas fundamentales en el ámbito de la bioinformática es la comprensión y manipulación de secuencias biológicas 
+como las del ADN, ARN, aminoácidos y proteínas. En este contexto, la traducción de ADN representa un proceso clave dentro de la 
+expresión genética, donde el ADN es convertido en proteínas funcionales, a través de la intermediación del ARN mensajero a aminoácidos.
+</div>
+""", unsafe_allow_html=True)
 
 # -----------------------------------------------------------------------------
 
@@ -231,8 +258,9 @@ def traducir_codones_a_codigo(codones):
 st.title("Transcripción de ARN a Aminoácidos")
 
 # Descripción de la aplicación
-st.write("""Esta aplicación toma una secuencia de ARN, la divide en codones y luego la traduce a aminoácidos. 
+st.write("""En esta sección se toma una secuencia de ARN, la divide en codones y luego la traduce a aminoácidos. 
 Un codón es un conjunto de tres nucleótidos que codifica un aminoácido.
+Ingrese sin espacios, comas o guiones.
 """)
 
 # Entrada de texto para que el usuario ingrese una secuencia de ARN
