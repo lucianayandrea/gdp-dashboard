@@ -329,7 +329,7 @@ if st.button("Traducir ARN a Aminoácidos"):
         st.warning("Por favor, ingresa una secuencia de ARN.")
 
 import streamlit as st
-import matplotlib
+matplotlib.use('Agg')
 import seaborn as sns
 from collections import Counter
 
