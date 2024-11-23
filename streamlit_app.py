@@ -324,8 +324,9 @@ st.title("Análisis de Secuencia de Aminoácidos")
 
 # Descripción de la aplicación
 st.write("""
-    Esta herramienta permite ingresar una secuencia de aminoácidos de tres letras (separados por comas) y calcula
-    los porcentajes de frecuencia de cada aminoácido, incluidos los códigos de "stop" (TAG, TAA, TGA). """)
+Bienvenido al **Proyecto de Bioinformática**. Este es un entorno interactivo donde exploramos la ciencia de los datos biológicos.
+Aquí podrás realizar diversos análisis y visualizar resultados de manera intuitiva. ¡Diviértete explorando el mundo de la genética y el ADN!
+""")
 
 # Entrada de texto para que el usuario ingrese la secuencia de aminoácidos
 aminoacidos_input = st.text_input("Introduce la secuencia de aminoácidos (separados por comas):", "")
