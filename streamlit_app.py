@@ -147,7 +147,7 @@ def transcribir_adn_a_arn(adn):
 st.title("Transcripción de ADN a ARN")
 
 # Ejemplo de secuencia de ADN humana
-adn_ejemplo = "ATGAGTGGCGTGGCGGTCCAGGAGGAGCTCAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGA"
+adn_ejemplo = "CGACACATAAGAACAACGAGAGTAGAAATATGAAGACTTCTCCCAGGGAAAATACTTTTACTTCAAAAACAGTTACTTGTTACAACGACGCCACTCATATGAGGCAGACTTGTAAAAATACAAGATGGGAAATTAACAGTTGTCCTCCTCCCAAGAACG"
 st.write("Ejemplo de secuencia de ADN:")
 st.code(adn_ejemplo)
 
@@ -155,6 +155,7 @@ st.code(adn_ejemplo)
 st.write("""
     Esta herramienta convierte una secuencia de ADN a ARN.
     En el proceso de transcripción, la base Timina (T) del ADN se reemplaza por Uracilo (U) en el ARN.
+    Ingrese la cadena sin espacios, comas o guión.
 """)
 
 
