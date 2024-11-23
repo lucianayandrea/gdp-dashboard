@@ -113,7 +113,7 @@ proteinas = [
     {
         "nombre": "Actina",
         "descripcion": "La actina es una proteína involucrada en la contracción muscular y en la forma celular.",
-        "imagen": "https://upload.wikimedia.org/wikipedia/commons/3/32/Actin_structure.png"
+        "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Actin_with_ADP_highlighted.png/250px-Actin_with_ADP_highlighted.png"
     }
 ]
 
