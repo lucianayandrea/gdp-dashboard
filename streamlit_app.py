@@ -322,11 +322,6 @@ def calcular_porcentajes(aminoacidos):
 # Título de la aplicación
 st.title("Análisis de Secuencia de Aminoácidos")
 
-# Descripción de la aplicación
-st.write("""
-Bienvenido al **Proyecto de Bioinformática**. Este es un entorno interactivo donde exploramos la ciencia de los datos biológicos.
-Aquí podrás realizar diversos análisis y visualizar resultados de manera intuitiva. Diviértete explorando el mundo de la genética y el ADN
-""")
 
 # Entrada de texto para que el usuario ingrese la secuencia de aminoácidos
 aminoacidos_input = st.text_input("Introduce la secuencia de aminoácidos (separados por comas):", "")
