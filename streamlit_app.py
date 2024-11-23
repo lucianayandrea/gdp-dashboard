@@ -332,6 +332,8 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import seaborn as sns
 from collections import Counter
+pip install matplotlib
+
 
 # Función para contar la frecuencia de los aminoácidos en la cadena ingresada
 def contar_aminoacidos(cadena):
