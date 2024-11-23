@@ -38,7 +38,7 @@ st.markdown(
 
     /* Estilos para los títulos */
     h1, h2, h3 {
-        color: #331B62;  /* Verde oscuro */
+        color: #2e8b57;  /* Verde oscuro */
         text-align: center;
     }
 
