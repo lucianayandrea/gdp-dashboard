@@ -103,7 +103,7 @@ proteinas = [
     {
         "nombre": "Insulina",
         "descripcion": "La insulina es una hormona que produce el páncreas, ayuda al cuerpo a utilizar y almacenar la glucosa, o azúcar en la sangre, como fuente de energía.",
-        "imagen": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fhomomedicus.com%2Fque-es-la-insulina%2F&psig=AOvVaw2vF8iJFyOfpGEOqti5YHqh&ust=1732426670568000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCJDU7bXe8YkDFQAAAAAdAAAAABAJ"
+        "imagen": "https://homomedicus.com/wp-content/uploads/2022/08/molecula-de-la-hormona-insulina-ilustracion-rxay1f.jpg"
    },
     {
         "nombre": "Colágeno",
