@@ -6,7 +6,7 @@ st.markdown(
     """
     <style>
     body {
-        background-color: #d4f7d4;  /* Fondo verde claro */
+        background-color: #DFE9F5;  /* Fondo verde claro */
         font-family: 'Arial', sans-serif;
     }
 
