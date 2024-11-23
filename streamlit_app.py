@@ -70,11 +70,11 @@ st.markdown(
 )
 
 # Título de la página
-st.title("Dashboard de Bioinformática")
+st.title("ADN, ARN y Proteinas")
 
 # Sección de bienvenida
 st.write("""
-Bienvenido al **Dashboard de Bioinformática**. Este es un entorno interactivo donde exploramos la ciencia de los datos biológicos.
+Bienvenido al **Proyecto de Bioinformática**. Este es un entorno interactivo donde exploramos la ciencia de los datos biológicos.
 Aquí podrás realizar diversos análisis y visualizar resultados de manera intuitiva. ¡Diviértete explorando el mundo de la genética y el ADN!
 """)
 
@@ -184,7 +184,7 @@ gdp_df = get_gdp_data()
 
 # Set the title that appears at the top of the page.
 '''
-# 🦾🧬 Transcriptor ADN, ARN y Proteinas
+# 🧬 Transcriptor ADN, ARN.
 
 
 La bioinformática es una disciplina interdisciplinaria que emplea técnicas computacionales y estadisticas 
