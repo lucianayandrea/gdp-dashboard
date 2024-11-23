@@ -174,7 +174,7 @@ if st.button("Transcribir ADN a ARN"):
 # Traducción de ARN a Aminoácidos
 
 # Diccionario que mapea codones de ARN a sus respectivos códigos de tres letras de aminoácidos
-codon_to_aminoacid = {
+codon_to_aminoacid = 
     codon_to_aminoacid = {
     "AUG": "Met", "UUU": "Phe", "UUC": "Phe", "UUA": "Leu", "UUG": "Leu",
     "CUU": "Leu", "CUC": "Leu", "CUA": "Leu", "CUG": "Leu", "AUU": "Iso",
