@@ -103,7 +103,7 @@ proteinas = [
     {
         "nombre": "Insulina",
         "descripcion": "La insulina es una hormona que produce el páncreas, ayuda al cuerpo a utilizar y almacenar la glucosa, o azúcar en la sangre, como fuente de energía .",
-        "imagen": "https://upload.wikimedia.org/wikipedia/commons/6/67/Dynamin.
+        "imagen": 
    },
     {
         "nombre": "Colágeno",
