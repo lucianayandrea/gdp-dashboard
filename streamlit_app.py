@@ -331,10 +331,14 @@ import streamlit as st
 import pandas as pd
 from collections import Counter
 
+# Definir los aminoácidos de "stop"
+STOP_CODES = ["TAG", "TAA", "TGA"]
+
 # Función para calcular los porcentajes de aminoácidos
 def calcular_porcentajes(aminoacidos):
     """
     Calcula la frecuencia de cada aminoácido en una cadena y devuelve un DataFrame con los porcentajes.
+    Incluye los códigos de "stop".
     """
     # Contar la frecuencia de cada aminoácido
     contador = Counter(aminoacidos)
@@ -354,16 +358,18 @@ def calcular_porcentajes(aminoacidos):
     return df
 
 # Título de la aplicación
-st.title("Análisis de Secuencia de Aminoácidos")
+st.title("Análisis de Secuencia de Aminoácidos con Códigos de Stop")
 
 # Descripción de la aplicación
 st.write("""
     Esta herramienta permite ingresar una secuencia de aminoácidos de tres letras (separados por comas) y calcula
-    los porcentajes de frecuencia de cada aminoácido en la secuencia ingresada.
+    los porcentajes de frecuencia de cada aminoácido, incluyendo los códigos de "stop" (TAG, TAA, TGA).
     
-    Ejemplo de secuencia de aminoácidos: Met,Phe,Leu,Met,Leu,Met.
+    Ejemplo de secuencia de aminoácidos: Met,Phe,Leu,Met,Leu,STOP,Met.
     
-    La secuencia debe estar formada por códigos de tres letras (por ejemplo: 'Met', 'Phe', 'Leu').
+    Los códigos de "stop" se contabilizan y muestran en la tabla de resultados.
+    
+    Por favor, asegúrate de ingresar los aminoácidos correctamente.
 """)
 
 # Entrada de texto para que el usuario ingrese la secuencia de aminoácidos
@@ -378,8 +384,13 @@ if st.button("Calcular Porcentajes"):
         # Verificamos que no haya espacios innecesarios
         aminoacidos = [aa.strip() for aa in aminoacidos]
         
-        # Validamos que los aminoácidos sean de tres letras
-        if all(len(aa) == 3 for aa in aminoacidos):
+        # Validamos que los aminoácidos sean de tres letras o "STOP"
+        validos = all(len(aa) == 3 or aa == "STOP" for aa in aminoacidos)
+        
+        if validos:
+            # Agregamos los códigos de "stop" como aminoácidos válidos
+            aminoacidos = [aa if aa in STOP_CODES else aa for aa in aminoacidos]
+            
             # Calculamos los porcentajes
             df_resultado = calcular_porcentajes(aminoacidos)
             
@@ -387,7 +398,7 @@ if st.button("Calcular Porcentajes"):
             st.write("### Tabla de Porcentajes de Aminoácidos:")
             st.dataframe(df_resultado)
         else:
-            st.error("La secuencia debe contener solo aminoácidos de tres letras (por ejemplo: 'Met', 'Phe').")
+            st.error("La secuencia debe contener aminoácidos de tres letras válidos o el código 'STOP'.")
     else:
         st.warning("Por favor, ingresa una secuencia de aminoácidos.")
 
