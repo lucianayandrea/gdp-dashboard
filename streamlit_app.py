@@ -354,4 +354,3 @@ if st.button("Calcular Porcentajes"):
             st.error("La secuencia debe contener aminoácidos válidos de tres letras o el código 'STOP'.")
     else:
         st.warning("Por favor, ingresa una secuencia de aminoácidos.")
-
