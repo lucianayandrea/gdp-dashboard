@@ -1,7 +1,5 @@
 import streamlit as st
 import random
-import streamlit as st
-import random
 
 # Personalización de la página con CSS
 st.markdown(
@@ -37,12 +35,17 @@ st.markdown(
         border-radius: 10px;
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         margin-top: 30px;
+        display: inline-block;
+        width: 100%;
     }
 
+    /* Estilo para el contenedor del botón */
     .button-container {
         text-align: center;
+        margin-top: 20px;
     }
 
+    /* Estilo para el botón */
     .button {
         background-color: #2e8b57;
         color: white;
@@ -52,13 +55,12 @@ st.markdown(
         cursor: pointer;
         font-size: 18px;
         display: inline-block;
-        margin-top: 20px;
     }
 
+    /* Efecto hover para el botón */
     .button:hover {
         background-color: #1f5e3f;
     }
-
     </style>
     """, unsafe_allow_html=True
 )
@@ -108,19 +110,21 @@ def mostrar_proteina_aleatoria():
     st.write(proteina['descripcion'])
     st.image(proteina['imagen'], caption=proteina['nombre'], use_column_width=True)
 
-# Sección para el cuadro de análisis con el botón centrado
+# Sección para el botón de análisis con el cuadro
 st.markdown("""
 <div class="content">
     <h2>¡Explora el ADN y la Genética!</h2>
     <p>Haz clic en el siguiente botón para descubrir una nueva proteína y su información.</p>
+    <div class="button-container">
+        <!-- El botón aquí está centrado en la caja -->
+        <button class="button" onclick="window.location.href='#';">Iniciar Análisis</button>
+    </div>
 </div>
 """, unsafe_allow_html=True)
 
-# Aquí es donde se colocará el botón "Iniciar Análisis"
-# Este botón es de Streamlit y está dentro del cuadro de contenido
+# Crear el botón para mostrar una proteína aleatoria (manteniendo solo uno funcional)
 if st.button("Iniciar Análisis"):
     mostrar_proteina_aleatoria()
-
 
 
 # -----------------------------------------------------------------------------
