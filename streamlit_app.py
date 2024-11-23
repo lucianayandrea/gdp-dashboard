@@ -55,7 +55,7 @@ st.markdown(
 )
 
 # Título de la página
-st.title("🧬 ADN, ARN y Proteinas 🧬")
+st.title("🧬 Cadenas de ADN, ARN y Proteina 🧬")
 
 # Sección de bienvenida
 st.write("""
@@ -139,7 +139,7 @@ st.markdown(
 )
 
 # Título de la página
-st.markdown("<h1>🦾 Transcriptor ADN, ARN 🦾</h1>", unsafe_allow_html=True)
+st.markdown("<h1>🦾 Transcriptor de ADN, ARN y Aminoácidos 🦾</h1>", unsafe_allow_html=True)
 
 # Texto descriptivo centrado debajo del título
 st.markdown("""
@@ -260,7 +260,7 @@ st.title("Transcripción de ARN a Aminoácidos")
 # Descripción de la aplicación
 st.write("""En esta sección se toma una secuencia de ARN, la divide en codones y luego la traduce a aminoácidos. 
 Un codón es un conjunto de tres nucleótidos que codifica un aminoácido.
-Ingrese sin espacios, comas o guiones.
+Ingrese la cadena sin espacios, comas o guión.
 """)
 
 # Entrada de texto para que el usuario ingrese una secuencia de ARN
