@@ -32,7 +32,7 @@ st.markdown(
     """
     <style>
     body {
-        background-color: #331B62;  /* Fondo verde claro */
+        background-color: #2e8b57;  /* Fondo verde claro */
         font-family: 'Arial', sans-serif;
     }
 
