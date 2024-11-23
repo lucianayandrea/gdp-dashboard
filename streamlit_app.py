@@ -12,6 +12,10 @@ st.set_page_config(
 )
 import streamlit as st
 
+import streamlit as st
+import random
+
+
 # Personalización de la página
 st.markdown(
     """
@@ -124,6 +128,7 @@ st.markdown("""
 # Crear el botón para mostrar una proteína aleatoria
 if st.button("Iniciar Análisis"):
     mostrar_proteina_aleatoria()
+
 # -----------------------------------------------------------------------------
 # Declare some useful functions.
 
