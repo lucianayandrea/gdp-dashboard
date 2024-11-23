@@ -329,3 +329,118 @@ if st.button("Traducir ARN a Aminoácidos"):
         st.warning("Por favor, ingresa una secuencia de ARN.")
 
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard de Aminoácidos</title>
+  <!-- Agregar el estilo de la página -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f4f4f9;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    canvas {
+      max-width: 500px;
+      max-height: 400px;
+    }
+  </style>
+  <!-- Cargar la librería de Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <h1>Aminoácidos en una Cadena de Proteínas</h1>
+  
+  <div class="container">
+    <!-- Gráfico de barras -->
+    <div>
+      <h2>Gráfico de Barras - Cantidad de Aminoácidos</h2>
+      <canvas id="barChart"></canvas>
+    </div>
+    <!-- Gráfico de pastel -->
+    <div>
+      <h2>Gráfico de Pastel - Distribución de Aminoácidos</h2>
+      <canvas id="pieChart"></canvas>
+    </div>
+  </div>
+
+  <script>
+    // Cadena de aminoácidos de ejemplo (puedes cambiarla por cualquier cadena)
+    const cadenaProteina = "ACGTAGCAGTCAAGGCTAG";
+
+    // Función para contar la cantidad de cada aminoácido
+    function contarAminoAcidos(cadena) {
+      const aminoAcidos = {};
+      for (let i = 0; i < cadena.length; i++) {
+        const aa = cadena[i];
+        aminoAcidos[aa] = aminoAcidos[aa] ? aminoAcidos[aa] + 1 : 1;
+      }
+      return aminoAcidos;
+    }
+
+    // Contar los aminoácidos en la cadena
+    const aminoAcidosContados = contarAminoAcidos(cadenaProteina);
+
+    // Preparar los datos para el gráfico de barras
+    const aminoAcidosLabels = Object.keys(aminoAcidosContados);
+    const aminoAcidosValues = Object.values(aminoAcidosContados);
+
+    // Gráfico de Barras
+    const ctxBar = document.getElementById('barChart').getContext('2d');
+    const barChart = new Chart(ctxBar, {
+      type: 'bar',
+      data: {
+        labels: aminoAcidosLabels,
+        datasets: [{
+          label: 'Cantidad de Aminoácidos',
+          data: aminoAcidosValues,
+          backgroundColor: '#42a5f5',
+          borderColor: '#1e88e5',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    // Gráfico de Pastel
+    const ctxPie = document.getElementById('pieChart').getContext('2d');
+    const pieChart = new Chart(ctxPie, {
+      type: 'pie',
+      data: {
+        labels: aminoAcidosLabels,
+        datasets: [{
+          data: aminoAcidosValues,
+          backgroundColor: ['#FF5733', '#33FF57', '#3357FF', '#F39C12', '#9B59B6'],
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          },
+        }
+      }
+    });
+  </script>
+</body>
+</html>
+
+
+
