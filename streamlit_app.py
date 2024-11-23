@@ -1,6 +1,9 @@
 import streamlit as st
 import random
 
+import streamlit as st
+import random
+
 # Personalización de la página con CSS
 st.markdown(
     """
@@ -70,7 +73,8 @@ st.title("🧬 ADN, ARN y Proteínas 🧬")
 
 # Sección de bienvenida
 st.write("""
-Bienvenido al **Proyecto de Bioinformática**.
+Bienvenido al **Proyecto de Bioinformática**. Este es un entorno interactivo donde exploramos la ciencia de los datos biológicos.
+Aquí podrás realizar diversos análisis y visualizar resultados de manera intuitiva. ¡Diviértete explorando el mundo de la genética y el ADN!
 """)
 
 # Lista de proteínas, sus descripciones y URLs de imágenes representativas
@@ -115,15 +119,15 @@ st.markdown("""
     <h2>¡Explora el ADN y la Genética!</h2>
     <p>Haz clic en el siguiente botón para descubrir una nueva proteína y su información.</p>
     <div class="button-container">
-        <!-- El botón aquí está centrado en la caja -->
-        <button class="button" onclick="window.location.href='#';">Iniciar Análisis</button>
+        <!-- Este es el botón de Streamlit que estará dentro del cuadro -->
     </div>
 </div>
 """, unsafe_allow_html=True)
 
-# Crear el botón para mostrar una proteína aleatoria (manteniendo solo uno funcional)
+# Crear el botón de Streamlit que está dentro del cuadro
 if st.button("Iniciar Análisis"):
     mostrar_proteina_aleatoria()
+
 
 
 # -----------------------------------------------------------------------------
