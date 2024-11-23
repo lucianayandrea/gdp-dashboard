@@ -100,7 +100,7 @@ proteinas = [
     {
         "nombre": "Colágeno",
         "descripcion": "El colágeno es una proteína estructural que proporciona soporte a los tejidos conectivos.",
-        "imagen": "https://e7.pngegg.com/pngimages/1019/883/png-clipart-collagen-type-viii-alpha-1-collagen-type-viii-alpha-2-alpha-collagen-protein-alpha-viii.png"
+        "imagen": "https://c0.klipartz.com/pngpicture/319/346/gratis-png-colageno-tipo-i-colageno-tipo-iii-colageno-alfa-1-tipo-i-colageno-tipo-i-alfa-1-patron-metalico.png"
     },
     {
         "nombre": "Actina",
