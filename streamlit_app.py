@@ -69,7 +69,7 @@ st.markdown(
 )
 
 # Título de la página
-st.title("ADN, ARN y Proteinas")
+st.title("🦾🧬 ADN, ARN y Proteinas 🦾🧬")
 
 # Sección de bienvenida
 st.write("""
