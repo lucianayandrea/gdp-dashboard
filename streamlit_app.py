@@ -10,6 +10,86 @@ st.set_page_config(
     page_title='Proyecto Bioinformatica',
     page_icon=':earth_world:', # This is an emoji shortcode. Could be a URL too.
 )
+import streamlit as st
+
+# Personalización de la página
+st.set_page_config(page_title="Dashboard Bioinformática", page_icon="🧬", layout="wide")
+
+# Agregamos el fondo verde claro y algunas decoraciones científicas
+st.markdown(
+    """
+    <style>
+    body {
+        background-color: #d4f7d4;  /* Fondo verde claro */
+        font-family: 'Arial', sans-serif;
+    }
+
+    /* Estilos para los títulos */
+    h1, h2, h3 {
+        color: #2e8b57;  /* Verde oscuro */
+        text-align: center;
+    }
+
+    /* Agregar decoración con imágenes de ADN */
+    .dna-decoration {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .dna-decoration img {
+        width: 50%;
+        max-width: 300px;
+        margin: 10px;
+    }
+
+    .content {
+        text-align: center;
+        padding: 20px;
+        background-color: #ffffff;  /* Fondo blanco para el contenido */
+        border-radius: 10px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        margin-top: 30px;
+    }
+
+    .button {
+        background-color: #2e8b57;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        font-size: 18px;
+    }
+
+    .button:hover {
+        background-color: #1f5e3f;
+    }
+    </style>
+    """, unsafe_allow_html=True
+)
+
+# Título de la página
+st.title("Dashboard de Bioinformática")
+
+# Sección de bienvenida
+st.write("""
+Bienvenido al **Dashboard de Bioinformática**. Este es un entorno interactivo donde exploramos la ciencia de los datos biológicos.
+Aquí podrás realizar diversos análisis y visualizar resultados de manera intuitiva. ¡Diviértete explorando el mundo de la genética y el ADN!
+""")
+
+# Decoración con imágenes de ADN (puedes usar imágenes de tu preferencia)
+st.markdown('<div class="dna-decoration"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/3d_dna.png/300px-3d_dna.png" alt="DNA Helix"></div>', unsafe_allow_html=True)
+
+# Sección para agregar una funcionalidad o interacción
+st.markdown("""
+<div class="content">
+    <h2>¡Explora el ADN y la Genética!</h2>
+    <p>Haz clic en el siguiente botón para descubrir una nueva función de análisis genético.</p>
+    <button class="button" onclick="alert('Análisis genético en proceso...')">Iniciar Análisis</button>
+</div>
+""", unsafe_allow_html=True)
+
+# Puedes agregar más interacciones, gráficos o funcionalidades específicas aquí según lo que necesites
 
 # -----------------------------------------------------------------------------
 # Declare some useful functions.
