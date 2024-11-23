@@ -12,9 +12,6 @@ st.set_page_config(
 )
 import streamlit as st
 
-# Configuración de la página (esto debe ser lo primero en el archivo)
-st.set_page_config(page_title="Dashboard Bioinformática", page_icon="🧬", layout="wide")
-
 # Personalización de la página
 st.markdown(
     """
