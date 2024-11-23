@@ -287,14 +287,14 @@ import streamlit as st
 import pandas as pd
 from collections import Counter
 
-# Definir los aminoácidos de "stop"
-STOP_CODES = ["TAG", "TAA", "TGA"]
-
-# Lista de aminoácidos válidos (código de tres letras)
+# Lista de aminoácidos válidos en formato de tres letras
 AMINOACIDOS_VALIDOS = [
-    "Ala", "Cys", "Asp", "Glu", "Phe", "Gly", "His", "Ile", "Leu", "Lys", "Met", "Phe", "Pro", "Ser", "Thr", "Trp", "Tyr", "Val"
-    # Agrega más aminoácidos válidos si es necesario
+    "Ala", "Cys", "Asp", "Glu", "Phe", "Gly", "His", "Ile", "Leu", "Lys", 
+    "Met", "Phe", "Pro", "Ser", "Thr", "Trp", "Tyr", "Val"
 ]
+
+# Códigos de "stop"
+STOP_CODES = ["TAG", "TAA", "TGA"]
 
 # Función para calcular los porcentajes de aminoácidos
 def calcular_porcentajes(aminoacidos):
@@ -325,7 +325,7 @@ st.title("Análisis de Secuencia de Aminoácidos")
 # Descripción de la aplicación
 st.write("""
     Esta herramienta permite ingresar una secuencia de aminoácidos de tres letras (separados por comas) y calcula
-    los porcentajes de frecuencia de cada aminoácido.
+    los porcentajes de frecuencia de cada aminoácido, incluidos los códigos de "stop" (TAG, TAA, TGA).
 """)
 
 # Entrada de texto para que el usuario ingrese la secuencia de aminoácidos
@@ -351,8 +351,8 @@ if st.button("Calcular Porcentajes"):
             st.write("### Tabla de Porcentajes de Aminoácidos:")
             st.dataframe(df_resultado)
         else:
+            # Si hay un aminoácido inválido, mostramos un mensaje de error
             st.error("La secuencia debe contener aminoácidos válidos de tres letras o el código 'STOP'.")
     else:
+        # Mensaje de advertencia si no se ha introducido ninguna secuencia
         st.warning("Por favor, ingresa una secuencia de aminoácidos.")
-
-
