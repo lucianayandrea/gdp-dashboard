@@ -15,7 +15,9 @@ st.markdown(
     }
     </style>
     """, unsafe_allow_html=True
-# Personalización de la página con CSS
+)
+
+    # Personalización de la página con CSS
 st.markdown(
     """
     <style>
