@@ -110,7 +110,22 @@ st.markdown("""
 # Crear el botón para mostrar una proteína aleatoria
 if st.button("Iniciar Análisis"):
     mostrar_proteina_aleatoria()
+# -----------------------------------------------------------------------------
+# Draw the actual page
 
+# Set the title that appears at the top of the page.
+'''
+# 🦾 Transcriptor ADN, ARN.
+
+
+La bioinformática es una disciplina interdisciplinaria que emplea técnicas computacionales y estadisticas 
+para resolver problemas biologicos, especialmente aquellos relacionados con la biologia molecular y genética 
+Una de las tareas fundamentales en el ámbito de la bioinformatica es la comprensión y manipulación de secuencias biológicas 
+como las del ADN,ARN y proteinas. En este contexto, la traduccion de ADN representa un un proceso clave dento de la 
+expresion genética contenida en el ADN es convertida en proteinas funcionales, a través de la intermediación del ARN mensajero.
+'''
+
+import streamlit as st
 # -----------------------------------------------------------------------------
 # Función para transcribir ADN a ARN
 def transcribir_adn_a_arn(adn):
