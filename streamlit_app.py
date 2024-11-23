@@ -139,7 +139,7 @@ st.markdown(
 )
 
 # Título de la página
-st.markdown("<h1>🦾 Transcriptor de ADN, ARN y Aminoácidos 🦾</h1>", unsafe_allow_html=True)
+st.markdown("<h1>🦾 Transcriptor de ADN, ARN y Aminoácidos </h1>", unsafe_allow_html=True)
 
 # Texto descriptivo centrado debajo del título
 st.markdown("""
