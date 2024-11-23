@@ -134,50 +134,6 @@ if st.button("Iniciar Análisis"):
 @st.cache_data
 def get_gdp_data():
     """Grab GDP data from a CSV file.
-
-    This uses caching to avoid having to read the file every time. If we were
-    reading from an HTTP endpoint instead of a file, it's a good idea to set
-    a maximum age to the cache with the TTL argument: @st.cache_data(ttl='1d')
-    """
-
-    # Instead of a CSV on disk, you could read from an HTTP endpoint here too.
-    DATA_FILENAME = Path(__file__).parent/'data/gdp_data.csv'
-    raw_gdp_df = pd.read_csv(DATA_FILENAME)
-
-    MIN_YEAR = 1960
-    MAX_YEAR = 2022
-
-    # The data above has columns like:
-    # - Country Name
-    # - Country Code
-    # - [Stuff I don't care about]
-    # - GDP for 1960
-    # - GDP for 1961
-    # - GDP for 1962
-    # - ...
-    # - GDP for 2022
-    #
-    # ...but I want this instead:
-    # - Country Name
-    # - Country Code
-    # - Year
-    # - GDP
-    #
-    # So let's pivot all those year-columns into two: Year and GDP
-    gdp_df = raw_gdp_df.melt(
-        ['Country Code'],
-        [str(x) for x in range(MIN_YEAR, MAX_YEAR + 1)],
-        'Year',
-        'GDP',
-    )
-
-    # Convert years from string to integers
-    gdp_df['Year'] = pd.to_numeric(gdp_df['Year'])
-
-    return gdp_df
-
-gdp_df = get_gdp_data()
-
 # -----------------------------------------------------------------------------
 # Draw the actual page
 
@@ -334,6 +290,12 @@ from collections import Counter
 # Definir los aminoácidos de "stop"
 STOP_CODES = ["TAG", "TAA", "TGA"]
 
+# Lista de aminoácidos válidos (código de tres letras)
+AMINOACIDOS_VALIDOS = [
+    "Ala", "Cys", "Asp", "Glu", "Phe", "Gly", "His", "Ile", "Leu", "Lys", "Met", "Phe", "Pro", "Ser", "Thr", "Trp", "Tyr", "Val"
+    # Agrega más aminoácidos válidos si es necesario
+]
+
 # Función para calcular los porcentajes de aminoácidos
 def calcular_porcentajes(aminoacidos):
     """
@@ -358,13 +320,12 @@ def calcular_porcentajes(aminoacidos):
     return df
 
 # Título de la aplicación
-st.title("Análisis de Secuencia de Aminoácidos con Códigos de Stop")
+st.title("Análisis de Secuencia de Aminoácidos")
 
 # Descripción de la aplicación
 st.write("""
     Esta herramienta permite ingresar una secuencia de aminoácidos de tres letras (separados por comas) y calcula
     los porcentajes de frecuencia de cada aminoácido.
-
 """)
 
 # Entrada de texto para que el usuario ingrese la secuencia de aminoácidos
@@ -379,13 +340,10 @@ if st.button("Calcular Porcentajes"):
         # Verificamos que no haya espacios innecesarios
         aminoacidos = [aa.strip() for aa in aminoacidos]
         
-        # Validamos que los aminoácidos sean de tres letras o "STOP"
-        validos = all(len(aa) == 3 or aa == "Stop" for aa in aminoacidos)
+        # Validamos que cada aminoácido sea válido
+        validos = all(aa in AMINOACIDOS_VALIDOS or aa in STOP_CODES for aa in aminoacidos)
         
         if validos:
-            # Agregamos los códigos de "stop" como aminoácidos válidos
-            aminoacidos = [aa if aa in STOP_CODES else aa for aa in aminoacidos]
-            
             # Calculamos los porcentajes
             df_resultado = calcular_porcentajes(aminoacidos)
             
@@ -393,7 +351,7 @@ if st.button("Calcular Porcentajes"):
             st.write("### Tabla de Porcentajes de Aminoácidos:")
             st.dataframe(df_resultado)
         else:
-            st.error("La secuencia debe contener aminoácidos de tres letras válidos o el código 'STOP'.")
+            st.error("La secuencia debe contener aminoácidos válidos de tres letras o el código 'STOP'.")
     else:
         st.warning("Por favor, ingresa una secuencia de aminoácidos.")
 
