@@ -363,13 +363,8 @@ st.title("Análisis de Secuencia de Aminoácidos con Códigos de Stop")
 # Descripción de la aplicación
 st.write("""
     Esta herramienta permite ingresar una secuencia de aminoácidos de tres letras (separados por comas) y calcula
-    los porcentajes de frecuencia de cada aminoácido, incluyendo los códigos de "stop" (TAG, TAA, TGA).
-    
-    Ejemplo de secuencia de aminoácidos: Met,Phe,Leu,Met,Leu,STOP,Met.
-    
-    Los códigos de "stop" se contabilizan y muestran en la tabla de resultados.
-    
-    Por favor, asegúrate de ingresar los aminoácidos correctamente.
+    los porcentajes de frecuencia de cada aminoácido.
+
 """)
 
 # Entrada de texto para que el usuario ingrese la secuencia de aminoácidos
@@ -385,7 +380,7 @@ if st.button("Calcular Porcentajes"):
         aminoacidos = [aa.strip() for aa in aminoacidos]
         
         # Validamos que los aminoácidos sean de tres letras o "STOP"
-        validos = all(len(aa) == 3 or aa == "STOP" for aa in aminoacidos)
+        validos = all(len(aa) == 3 or aa == "Stop" for aa in aminoacidos)
         
         if validos:
             # Agregamos los códigos de "stop" como aminoácidos válidos
