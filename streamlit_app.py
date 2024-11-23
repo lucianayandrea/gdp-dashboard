@@ -79,7 +79,7 @@ Aquí podrás realizar diversos análisis y visualizar resultados de manera intu
 """)
 
 # Decoración con imágenes de ADN
-st.markdown('<div class="dna-decoration"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/3d_dna.png/300px-3d_dna.png" alt="DNA Helix"></div>', unsafe_allow_html=True)
+st.markdown('<div class="dna-decoration"><img src="https://i.sstatic.net/GRxg2.png" alt="DNA Helix"></div>', unsafe_allow_html=True)
 
 # Lista de proteínas, sus descripciones y URLs de imágenes representativas
 proteinas = [
