@@ -79,7 +79,7 @@ Aquí podrás realizar diversos análisis y visualizar resultados de manera intu
 """)
 
 # Decoración con imágenes de ADN
-jjjj
+
 
 # Lista de proteínas, sus descripciones y URLs de imágenes representativas
 proteinas = [
