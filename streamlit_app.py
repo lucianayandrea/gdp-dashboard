@@ -436,7 +436,7 @@ if st.button("Traducir ARN a Aminoácidos"):
                         tooltip: {
                             callbacks: {
                                 label: function(context) {
-                                    return ${context.label}: ${context.raw};
+                                    return `${context.label}: ${context.raw}`;
                                 }
                             }
                         }
@@ -459,6 +459,7 @@ if st.button("Traducir ARN a Aminoácidos"):
     </script>
 </body>
 </html>
+
 
 
 
