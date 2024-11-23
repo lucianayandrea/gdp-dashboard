@@ -31,7 +31,7 @@ st.markdown(
     .content {
         text-align: center;
         padding: 20px;
-        background-color: #DFE9F5;  /* Fondo blanco para el contenido */
+        background-color: #ffffff;  /* Fondo blanco para el contenido */
         border-radius: 10px;
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         margin-top: 30px;
