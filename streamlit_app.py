@@ -74,7 +74,7 @@ st.markdown(
     }
 
     .button:hover {
-        background-color: #1f5e3f;
+        background-color: #b3cde0;
     }
     </style>
     """, unsafe_allow_html=True
