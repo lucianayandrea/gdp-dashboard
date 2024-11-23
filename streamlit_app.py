@@ -166,8 +166,6 @@ if st.button("Transcribir ADN a ARN"):
 # -----------------------------------------------------------------------------
 # Diccionario de codones de ARN a aminoácidos
 codon_to_aminoacid = {
-# Diccionario de codones de ARN a aminoácidos
-codon_to_aminoacid = {
     "AUG": "Met", "UUU": "Phe", "UUC": "Phe", "UUA": "Leu", "UUG": "Leu",
     "CUU": "Leu", "CUC": "Leu", "CUA": "Leu", "CUG": "Leu", "AUU": "Iso",
     "AUC": "Iso", "AUA": "Iso", "ACU": "Thr", "ACC": "Thr", "ACA": "Thr",
