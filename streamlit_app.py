@@ -79,7 +79,7 @@ Aquí podrás realizar diversos análisis y visualizar resultados de manera intu
 """)
 
 # Decoración con imágenes de ADN
-https://i.sstatic.net/GRxg2.png
+https://e7.pngegg.com/pngimages/395/770/png-clipart-dna-logo-dna-nucleic-acid-double-helix-euclidean-blue-and-green-cute-dna-double-helix-graphics-blue-simple.png
 
 # Lista de proteínas, sus descripciones y URLs de imágenes representativas
 proteinas = [
