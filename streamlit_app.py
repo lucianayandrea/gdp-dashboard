@@ -1,9 +1,6 @@
 import streamlit as st
 import random
 
-import streamlit as st
-import random
-
 # Personalización de la página con CSS
 st.markdown(
     """
@@ -113,16 +110,12 @@ st.markdown("""
 <div class="content">
     <h2>¡Explora el ADN y la Genética!</h2>
     <p>Haz clic en el siguiente botón para descubrir una nueva proteína y su información.</p>
-    <div class="button-container">
-        <button class="button" onclick="window.location.reload()">Iniciar Análisis</button>
-    </div>
 </div>
 """, unsafe_allow_html=True)
 
-# Crear el botón para mostrar una proteína aleatoria
+# Crear el botón para mostrar una proteína aleatoria dentro de Streamlit
 if st.button("Iniciar Análisis"):
     mostrar_proteina_aleatoria()
-
 
 # -----------------------------------------------------------------------------
 # Draw the actual page
