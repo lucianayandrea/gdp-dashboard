@@ -328,4 +328,75 @@ if st.button("Traducir ARN a Aminoácidos"):
         st.warning("Por favor, ingresa una secuencia de ARN.")
 
 
+import streamlit as st
+import plotly.express as px
+
+# Diccionario de aminoácidos con su código de tres letras
+aminoacidos_validos = [
+    "ALA", "ARG", "ASN", "ASP", "CYS", "GLN", "GLU", "GLY", "HIS", "ILE",
+    "LEU", "LYS", "MET", "PHE", "PRO", "SER", "THR", "TRP", "TYR", "VAL"
+]
+
+# Función para contar la frecuencia de cada aminoácido en la cadena
+def contar_aminoacidos(cadena):
+    # Convertimos la cadena a una lista de aminoácidos
+    aminoacidos = cadena.upper().split('-')  # Usamos guiones como separadores
+    frecuencias = {}
+
+    # Contamos las frecuencias de cada aminoácido
+    for amino in aminoacidos:
+        if amino in frecuencias:
+            frecuencias[amino] += 1
+        else:
+            frecuencias[amino] = 1
+
+    # Calculamos los porcentajes de cada aminoácido
+    total = len(aminoacidos)
+    porcentajes = {amino: (count / total) * 100 for amino, count in frecuencias.items()}
+    
+    return porcentajes
+
+# Título de la aplicación
+st.title("Dashboard de Aminoácidos en Código de Tres Letras")
+
+# Descripción de la app
+st.write("""
+Este dashboard permite analizar una cadena de aminoácidos en formato de código de tres letras (ejemplo: ALA-LEU-GLY).
+Se calcula el porcentaje de cada tipo de aminoácido y se genera un gráfico interactivo.
+""")
+
+# Entrada de la cadena de aminoácidos
+cadena = st.text_input("Ingresa una cadena de aminoácidos en formato de código de 3 letras (separados por guiones):", "ALA-VAL-GLY-ALA-GLY")
+
+# Validación de la entrada: asegurarse de que solo contiene letras y guiones, y que son aminoácidos válidos
+if cadena:
+    # Limpiamos la cadena para asegurarnos de que no haya caracteres no permitidos
+    if all(c in aminoacidos_validos or c == '-' for c in cadena.split('-')):
+        # Llamamos a la función para obtener los porcentajes
+        porcentajes = contar_aminoacidos(cadena)
+        
+        # Mostrar el resultado de los porcentajes
+        st.write("### Porcentaje de Aminoácidos")
+        st.write(porcentajes)
+        
+        # Selección del tipo de gráfico
+        grafico_tipo = st.selectbox("Selecciona el tipo de gráfico:", ["Gráfico de Barras", "Gráfico Circular"])
+
+        # Crear y mostrar el gráfico según la selección
+        if grafico_tipo == "Gráfico de Barras":
+            # Usamos Plotly Express para crear un gráfico de barras
+            fig = px.bar(x=list(porcentajes.keys()), y=list(porcentajes.values()), labels={'x': 'Aminoácidos', 'y': 'Porcentaje'},
+                         title="Porcentaje de Aminoácidos (Gráfico de Barras)")
+            st.plotly_chart(fig)
+        
+        elif grafico_tipo == "Gráfico Circular":
+            # Usamos Plotly Express para crear un gráfico circular
+            fig = px.pie(names=list(porcentajes.keys()), values=list(porcentajes.values()), 
+                         title="Porcentaje de Aminoácidos (Gráfico Circular)")
+            st.plotly_chart(fig)
+    
+    else:
+        st.error("La cadena ingresada contiene aminoácidos no válidos. Por favor ingresa una cadena con los códigos de tres letras válidos como 'ALA', 'LEU', 'GLY', etc.")
+else:
+    st.warning("Por favor ingresa una cadena de aminoácidos.")
 
