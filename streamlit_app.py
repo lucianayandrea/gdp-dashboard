@@ -325,8 +325,7 @@ st.title("Análisis de Secuencia de Aminoácidos")
 # Descripción de la aplicación
 st.write("""
     Esta herramienta permite ingresar una secuencia de aminoácidos de tres letras (separados por comas) y calcula
-    los porcentajes de frecuencia de cada aminoácido, incluidos los códigos de "stop" (TAG, TAA, TGA).
-""")
+    los porcentajes de frecuencia de cada aminoácido, incluidos los códigos de "stop" (TAG, TAA, TGA). """)
 
 # Entrada de texto para que el usuario ingrese la secuencia de aminoácidos
 aminoacidos_input = st.text_input("Introduce la secuencia de aminoácidos (separados por comas):", "")
