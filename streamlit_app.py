@@ -1,9 +1,6 @@
 import streamlit as st
 import random
 
-import streamlit as st
-import random
-
 # Personalización de la página con CSS
 st.markdown(
     """
@@ -38,23 +35,8 @@ st.markdown(
         border-radius: 10px;
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         margin-top: 30px;
-        display: inline-block;
-        width: 100%;
-        max-width: 600px;  /* Establecer un ancho máximo */
-        margin-left: auto;  /* Alineación automática a la izquierda */
-        margin-right: auto;  /* Alineación automática a la derecha */
     }
 
-    /* Estilo para el contenedor del botón */
-    .button-container {
-        text-align: center;
-        margin-top: 20px;
-        display: flex;
-        justify-content: center;  /* Centrado flex */
-        align-items: center;
-    }
-
-    /* Estilo para el botón */
     .button {
         background-color: #2e8b57;
         color: white;
@@ -63,10 +45,8 @@ st.markdown(
         border: none;
         cursor: pointer;
         font-size: 18px;
-        display: inline-block;
     }
 
-    /* Efecto hover para el botón */
     .button:hover {
         background-color: #1f5e3f;
     }
@@ -75,7 +55,7 @@ st.markdown(
 )
 
 # Título de la página
-st.title("🧬 ADN, ARN y Proteínas 🧬")
+st.title("🧬 ADN, ARN y Proteinas 🧬")
 
 # Sección de bienvenida
 st.write("""
@@ -119,21 +99,17 @@ def mostrar_proteina_aleatoria():
     st.write(proteina['descripcion'])
     st.image(proteina['imagen'], caption=proteina['nombre'], use_column_width=True)
 
-# Sección para el botón de análisis con el cuadro
+# Sección para el botón de análisis
 st.markdown("""
 <div class="content">
     <h2>¡Explora el ADN y la Genética!</h2>
     <p>Haz clic en el siguiente botón para descubrir una nueva proteína y su información.</p>
-    <div class="button-container">
-        <!-- Este es el botón de Streamlit que estará dentro del cuadro -->
-    </div>
 </div>
 """, unsafe_allow_html=True)
 
-# Crear el botón de Streamlit que está dentro del cuadro
+# Crear el botón para mostrar una proteína aleatoria
 if st.button("Iniciar Análisis"):
     mostrar_proteina_aleatoria()
-
 
 # -----------------------------------------------------------------------------
 # Draw the actual page
