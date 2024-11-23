@@ -1,6 +1,9 @@
 import streamlit as st
 import random
 
+import streamlit as st
+import random
+
 # Personalización de la página con CSS
 st.markdown(
     """
@@ -45,17 +48,23 @@ st.markdown(
         border: none;
         cursor: pointer;
         font-size: 18px;
+        display: inline-block;
+        margin-top: 20px;
     }
 
     .button:hover {
         background-color: #1f5e3f;
+    }
+
+    .button-container {
+        text-align: center;
     }
     </style>
     """, unsafe_allow_html=True
 )
 
 # Título de la página
-st.title("🧬 ADN, ARN y Proteinas 🧬")
+st.title("🧬 ADN, ARN y Proteínas 🧬")
 
 # Sección de bienvenida
 st.write("""
@@ -99,11 +108,14 @@ def mostrar_proteina_aleatoria():
     st.write(proteina['descripcion'])
     st.image(proteina['imagen'], caption=proteina['nombre'], use_column_width=True)
 
-# Sección para el botón de análisis
+# Sección para el cuadro de análisis con el botón centrado
 st.markdown("""
 <div class="content">
     <h2>¡Explora el ADN y la Genética!</h2>
     <p>Haz clic en el siguiente botón para descubrir una nueva proteína y su información.</p>
+    <div class="button-container">
+        <button class="button" onclick="window.location.reload()">Iniciar Análisis</button>
+    </div>
 </div>
 """, unsafe_allow_html=True)
 
@@ -111,69 +123,6 @@ st.markdown("""
 if st.button("Iniciar Análisis"):
     mostrar_proteina_aleatoria()
 
-# -----------------------------------------------------------------------------
-# Función para transcribir ADN a ARN
-def transcribir_adn_a_arn(adn):
-    """
-    Convierte una secuencia de ADN en ARN, reemplazando la Timina (T) por Uracilo (U).
-    """
-    transcripcion = {'A': 'A', 'T': 'U', 'G': 'C', 'C': 'G'}
-    arn = ''
-    for base in adn:
-        if base in transcripcion:
-            arn += transcripcion[base]
-        else:
-            return None  # Si hay un carácter no válido, retornamos None
-    return arn
-
-# Título de la aplicación
-st.title("Transcripción de ADN a ARN")
-
-# Descripción de la aplicación
-st.write("""
-    Esta herramienta convierte una secuencia de ADN a ARN.
-    
-    En el proceso de transcripción, la base Timina (T) del ADN se reemplaza por Uracilo (U) en el ARN.
-""")
-
-# Ejemplo de secuencia de ADN humana
-adn_ejemplo = "ATGAGTGGCGTGGCGGTCCAGGAGGAGCTCAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGAGGA"
-st.write("Ejemplo de secuencia de ADN:")
-st.code(adn_ejemplo)
-
-# Entrada de texto para que el usuario ingrese su propia secuencia de ADN
-adn_usuario = st.text_input("Introduce tu secuencia de ADN:", "")
-
-# Verifica si el usuario ha presionado el botón de transcripción
-if st.button("Transcribir ADN a ARN"):
-    if adn_usuario:
-        # Convertimos la secuencia de ADN a mayúsculas para evitar problemas de formato
-        adn_usuario = adn_usuario.upper()
-
-        # Validar que la secuencia contiene solo caracteres válidos
-        if all(base in 'ATGC' for base in adn_usuario):
-            # Llamamos a la función de transcripción
-            arn_resultado = transcribir_adn_a_arn(adn_usuario)
-            if arn_resultado:
-                st.success(f"La secuencia de ARN transcrita es: {arn_resultado}")
-            else:
-                st.error("Hubo un error en la transcripción. Asegúrate de que la secuencia de ADN esté correcta.")
-        else:
-            st.error("La secuencia de ADN contiene caracteres no válidos. Solo se permiten A, T, G y C.")
-    else:
-        st.warning("Por favor, ingresa una secuencia de ADN.")
-
-# -----------------------------------------------------------------------------
-# Diccionario de codones de ARN a aminoácidos
-codon_to_aminoacid = {
-    "AUG": "Met", "UUU": "Phe", "UUC": "Phe", "UUA": "Leu", "UUG": "Leu",
-    "CUU": "Leu", "CUC": "Leu", "CUA": "Leu", "CUG": "Leu", "AUU": "Iso",
-    "AUC": "Iso", "AUA": "Iso", "ACU": "Thr", "ACC": "Thr", "ACA": "Thr",
-    "ACG": "Thr", "GUU": "Val", "GUC": "Val", "GUA": "Val", "GUG": "Val",
-    "GCU": "Ala", "GCC": "Ala", "GCA": "Ala", "GCG": "Ala", "AAU": "Asn",
-    "AAC": "Asn", "AAA": "Lys", "AAG": "Lys", "GAU": "Asp", "GAC": "Asp",
-    "GAA": "Glu", "GAG": "Glu", "UGU": "Cys", "UGC": "Cys", "UGA": "Stop",
-    "UG
 
 # -----------------------------------------------------------------------------
 # Draw the actual page
