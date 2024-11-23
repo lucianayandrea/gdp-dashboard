@@ -298,10 +298,7 @@ STOP_CODES = ["TAG", "TAA", "TGA"]
 
 # Función para calcular los porcentajes de aminoácidos
 def calcular_porcentajes(aminoacidos):
-    """
-    Calcula la frecuencia de cada aminoácido en una cadena y devuelve un DataFrame con los porcentajes.
-    Incluye los códigos de "stop".
-    """
+    
     # Contar la frecuencia de cada aminoácido
     contador = Counter(aminoacidos)
     
