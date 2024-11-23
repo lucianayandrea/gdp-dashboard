@@ -102,8 +102,8 @@ proteinas = [
     },
     {
         "nombre": "Insulina",
-        "descripcion": "La insulina es una hormona que produce el páncreas, ayuda al cuerpo a utilizar y almacenar la glucosa, o azúcar en la sangre, como fuente de energía .",
-        "imagen": "https://vitae.ucv.ve/images/user/insf3.jpg"
+        "descripcion": "La insulina es una hormona que produce el páncreas, ayuda al cuerpo a utilizar y almacenar la glucosa, o azúcar en la sangre, como fuente de energía.",
+        "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Human-insulin-hexamer-3D-ribbons.png/225px-Human-insulin-hexamer-3D-ribbons.png"
    },
     {
         "nombre": "Colágeno",
