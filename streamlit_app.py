@@ -2,7 +2,7 @@ import streamlit as st
 import random
 
 # Personalización de la página con CSS
-mport streamlit as st
+
 
 # Personalización de la página con CSS
 st.markdown(
