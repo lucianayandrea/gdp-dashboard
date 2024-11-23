@@ -108,7 +108,7 @@ proteinas = [
     {
         "nombre": "Colágeno",
         "descripcion": "El colágeno es una proteína estructural que proporciona soporte a los tejidos conectivos.",
-        "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Protein_COL10A1_PDB_1gr3.png/250px-Protein_COL10A1_PDB_1gr3.png"
+        "imagen": "http://www.cosmetologas.com/data/img_cont/fk_editor/image/colageno_01_0416.jpg"
     },
     {
         "nombre": "Actina",
