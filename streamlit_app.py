@@ -414,3 +414,8 @@ if st.button("Calcular Porcentajes"):
             st.error("La secuencia debe contener aminoácidos de tres letras válidos o el código 'Stop'.")
     else:
         st.warning("Por favor, ingresa una secuencia de aminoácidos.")
+
+st.image('https://upload.wikimedia.org/wikipedia/commons/b/be/Kuensting_replication_color.gif')
+
+
+
