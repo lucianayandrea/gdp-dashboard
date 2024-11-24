@@ -118,32 +118,32 @@ proteinas = [
      {
         "nombre": "Mioglobina",
         "descripcion": "Es una proteína que se encarga de transportar y almacenar oxígeno en los músculos, especialmente en el cardíaco.",
-        "imagen": "https://previews.123rf.com/images/lculig/lculig1207/lculig120700047/14568676-la-pepsina-modelo-3d-una-enzima-que-digiere-las-prote%C3%ADnas-de-los-alimentos-en-p%C3%A9ptidos.jpg"
+        "imagen": "https://pymstatic.com/98662/conversions/mioglobina-wide_webp.webp"
     },
     {
         "nombre": "Queratina",
         "descripcion": "Es una proteína fundamental para la resistencia y durabilidad de la piel, el cabello y las uñas, y está presente en las células que recubren los órganos y las glándulas",
-        "imagen": "https://upload.wikimedia.org/wikipedia/commons/2/22/Chymotrypsin.png"
+        "imagen": "https://kmax-espana.es/blog/wp-content/uploads/2017/08/queratina-300x225.jpg"
     },
     {
         "nombre": "Tripsina",
         "descripcion": "Es una enzima que se produce en el páncreas y que tiene un papel fundamental en la digestión y absorción de nutrientes.",
-        "imagen": "https://guatequimica.com/bootstrap/bootstrap-proteina/diabetes/1trz-BU.png"
+        "imagen": "https://st4.depositphotos.com/3802617/21578/v/950/depositphotos_215780520-stock-illustration-trypsin-molecular-chemical-formula-enzyme.jpg"
    },
     {
         "nombre": "Lisozima",
         "descripcion": "Es una enzima natural que tiene propiedades antibacterianas y que se encuentra en muchos fluidos corporales, como la saliva, las lágrimas, el moco, la leche materna, el plasma sanguíneo, etc.",
-        "imagen": "https://lh5.googleusercontent.com/proxy/CaNMuLVw2ZVPJ_KFQjso1gAw5CF1QxuWVAOfkdrTO7IH71hYfJMgsb37_KH2PMShWUaAYIgYOEBCk2YuFNA-GdGynZCPy3bCIfSND0A64jaOWoS9_B3MsmnyENKIaY0E6L6lXRj57GUr1J0pzg"
+        "imagen": "https://i.blogs.es/ebd1f9/lisozima/1366_2000.png"
     },
     {
         "nombre": "Elastina",
         "descripcion": "Es una proteína que tiene como función  dar elasticidad y resistencia a los tejidos, y mantener su estructura.",
-        "imagen": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Actin_with_ADP_highlighted.png"
+        "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_ekmBuNv1L7ixWDm9y_aNdH3dVutWy9KMAQ&s"
     },
     {
         "nombre": "Pepsina",
         "descripcion": "Es una enzima digestiva que se encuentra en el jugo gástrico y que se encarga de descomponer las proteínas de los alimentos.",
-        "imagen": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Actin_with_ADP_highlighted.png"
+        "imagen": "https://previews.123rf.com/images/lculig/lculig1207/lculig120700047/14568676-la-pepsina-modelo-3d-una-enzima-que-digiere-las-prote%C3%ADnas-de-los-alimentos-en-p%C3%A9ptidos.jpg"
     }
 ]
 
