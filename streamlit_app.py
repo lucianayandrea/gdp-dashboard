@@ -107,6 +107,9 @@ st.markdown(
 # Título de la página
 st.title("🧬 Cadenas de ADN, ARN y Proteinas")
 
+st.image(proteina['https://globetechcdn.com/mobile_es_labmedica/images/stories/articles/article_images/2019-08-21/R3z42ndQ.jpeg'])
+
+
 # Sección de bienvenida
 st.write("""
 Bienvenido al **Proyecto de Bioinformática**. Este es un entorno interactivo donde exploramos la ciencia de los datos biológicos.
@@ -131,6 +134,7 @@ proteinas = [
    },
     {
         "nombre": "Colágeno",
+        
         "descripcion": "El colágeno es una proteína estructural que proporciona soporte a los tejidos conectivos.",
         "imagen": "https://lh5.googleusercontent.com/proxy/CaNMuLVw2ZVPJ_KFQjso1gAw5CF1QxuWVAOfkdrTO7IH71hYfJMgsb37_KH2PMShWUaAYIgYOEBCk2YuFNA-GdGynZCPy3bCIfSND0A64jaOWoS9_B3MsmnyENKIaY0E6L6lXRj57GUr1J0pzg"
    },
