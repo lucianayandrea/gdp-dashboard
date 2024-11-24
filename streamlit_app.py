@@ -123,7 +123,7 @@ proteinas = [
     {
         "nombre": "Queratina",
         "descripcion": "Es una proteína fundamental para la resistencia y durabilidad de la piel, el cabello y las uñas, y está presente en las células que recubren los órganos y las glándulas",
-        "imagen": "https://previews.123rf.com/images/molekuul/molekuul1512/molekuul151200061/49855313-filamentos-intermedios-de-queratina-la-estructura-qu%C3%ADmica-la-queratina-es-uno-de-los-principales.jpg"
+        "imagen": "https://www.kmax-espana.es/blog/wp-content/uploads/2017/08/queratina-300x225.jpg"
     },
     {
         "nombre": "Tripsina",
