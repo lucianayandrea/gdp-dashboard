@@ -1,5 +1,7 @@
 import streamlit as st
 import random
+import pandas as pd
+from collections import Counter
 
 # Personalización de la página con CSS
 st.markdown(
@@ -207,8 +209,6 @@ expresión genética, donde el ADN es convertido en proteínas funcionales, a tr
 
 # -----------------------------------------------------------------------------
 
-import streamlit as st
-
 # Función para transcribir ADN a ARN
 def transcribir_adn_a_arn(adn):
     """
@@ -239,10 +239,10 @@ st.write("""
 """)
 
 
-# Entrada de texto para que el usuario ingrese su propia secuencia de ADN
+# Entrada de texto para que SE ingrese su secuencia de ADN
 adn_usuario = st.text_input("Introduce tu secuencia de ADN:", "")
 
-# Verifica si el usuario ha presionado el botón de transcripción
+# Verifica si se ha presionado el botón de transcripción
 if st.button("Transcribir ADN a ARN"):
     if adn_usuario:
         # Convertimos la secuencia de ADN a mayúsculas para evitar problemas de formato
@@ -344,9 +344,6 @@ if st.button("Traducir ARN a Aminoácidos"):
         st.warning("Por favor, ingresa una secuencia de ARN.")
 
 # -----------------------------------------------------------------------------
-import streamlit as st
-import pandas as pd
-from collections import Counter
 
 # Definir los aminoácidos de "stop"
 STOP_CODES = ["TAG", "TAA", "TGA"]
