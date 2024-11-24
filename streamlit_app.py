@@ -115,6 +115,36 @@ proteinas = [
         "descripcion": "La actina es una proteína involucrada en la contracción muscular y en la forma celular.",
         "imagen": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Actin_with_ADP_highlighted.png"
     }
+     {
+        "nombre": "Mioglobina",
+        "descripcion": "Es una proteína que se encarga de transportar y almacenar oxígeno en los músculos, especialmente en el cardíaco.",
+        "imagen": "https://globetechcdn.com/mobile_es_labmedica/images/stories/articles/article_images/2019-08-21/R3z42ndQ.jpeg"
+    },
+    {
+        "nombre": "Queratina",
+        "descripcion": "Es una proteína fundamental para la resistencia y durabilidad de la piel, el cabello y las uñas, y está presente en las células que recubren los órganos y las glándulas",
+        "imagen": "https://upload.wikimedia.org/wikipedia/commons/2/22/Chymotrypsin.png"
+    },
+    {
+        "nombre": "Tripsina",
+        "descripcion": "Es una enzima que se produce en el páncreas y que tiene un papel fundamental en la digestión y absorción de nutrientes.",
+        "imagen": "https://guatequimica.com/bootstrap/bootstrap-proteina/diabetes/1trz-BU.png"
+   },
+    {
+        "nombre": "Lisozima",
+        "descripcion": "Es una enzima natural que tiene propiedades antibacterianas y que se encuentra en muchos fluidos corporales, como la saliva, las lágrimas, el moco, la leche materna, el plasma sanguíneo, etc.",
+        "imagen": "https://lh5.googleusercontent.com/proxy/CaNMuLVw2ZVPJ_KFQjso1gAw5CF1QxuWVAOfkdrTO7IH71hYfJMgsb37_KH2PMShWUaAYIgYOEBCk2YuFNA-GdGynZCPy3bCIfSND0A64jaOWoS9_B3MsmnyENKIaY0E6L6lXRj57GUr1J0pzg"
+    },
+    {
+        "nombre": "Elastina",
+        "descripcion": "Es una proteína que tiene como función  dar elasticidad y resistencia a los tejidos, y mantener su estructura.",
+        "imagen": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Actin_with_ADP_highlighted.png"
+    },
+    {
+        "nombre": "Pepsina",
+        "descripcion": "Es una enzima digestiva que se encuentra en el jugo gástrico y que se encarga de descomponer las proteínas de los alimentos.",
+        "imagen": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Actin_with_ADP_highlighted.png"
+    }
 ]
 
 # Función para mostrar una proteína aleatoria
