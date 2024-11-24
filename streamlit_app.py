@@ -109,7 +109,7 @@ proteinas = [
         "nombre": "Colágeno",
         "descripcion": "El colágeno es una proteína estructural que proporciona soporte a los tejidos conectivos.",
         "imagen": "https://lh5.googleusercontent.com/proxy/CaNMuLVw2ZVPJ_KFQjso1gAw5CF1QxuWVAOfkdrTO7IH71hYfJMgsb37_KH2PMShWUaAYIgYOEBCk2YuFNA-GdGynZCPy3bCIfSND0A64jaOWoS9_B3MsmnyENKIaY0E6L6lXRj57GUr1J0pzg"
-    },
+   },
     {
         "nombre": "Actina",
         "descripcion": "La actina es una proteína involucrada en la contracción muscular y en la forma celular.",
