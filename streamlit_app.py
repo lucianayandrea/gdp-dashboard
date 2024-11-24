@@ -118,7 +118,7 @@ proteinas = [
      {
         "nombre": "Mioglobina",
         "descripcion": "Es una proteína que se encarga de transportar y almacenar oxígeno en los músculos, especialmente en el cardíaco.",
-        "imagen": "https://globetechcdn.com/mobile_es_labmedica/images/stories/articles/article_images/2019-08-21/R3z42ndQ.jpeg"
+        "imagen": "https://previews.123rf.com/images/lculig/lculig1207/lculig120700047/14568676-la-pepsina-modelo-3d-una-enzima-que-digiere-las-prote%C3%ADnas-de-los-alimentos-en-p%C3%A9ptidos.jpg"
     },
     {
         "nombre": "Queratina",
