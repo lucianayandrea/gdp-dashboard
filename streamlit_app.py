@@ -2,10 +2,6 @@ import streamlit as st
 import random
 
 # Personalización de la página con CSS
-
-import streamlit as st
-
-# Personalización de la página con CSS
 st.markdown(
     """
     <style>
@@ -79,6 +75,34 @@ st.markdown(
     </style>
     """, unsafe_allow_html=True
 )
+
+# Personalización de la página con CSS
+st.markdown(
+    """
+    <style>
+    body {
+        background-color: #f0f8ff;  /* Fondo azul claro */
+        font-family: 'Arial', sans-serif;
+    }
+
+    h1 {
+        color: #2e8b57;  /* Verde oscuro */
+        text-align: center;  /* Centrado del título */
+    }
+
+    .description {
+        color: #333333;  /* Texto en gris oscuro */
+        font-size: 18px;
+        text-align: center;  /* Centrado del texto */
+        max-width: 800px;  /* Controlar el ancho del texto */
+        margin: 20px auto;  /* Centrar el texto con margen */
+    }
+    </style>
+    """, unsafe_allow_html=True
+)
+
+
+
 
 # Título de la página
 st.title("🧬 Cadenas de ADN, ARN y Proteinas")
@@ -167,32 +191,7 @@ if st.button("Iniciar Análisis"):
     mostrar_proteina_aleatoria()
 
 # -----------------------------------------------------------------------------
-import streamlit as st
 
-# Personalización de la página con CSS
-st.markdown(
-    """
-    <style>
-    body {
-        background-color: #f0f8ff;  /* Fondo azul claro */
-        font-family: 'Arial', sans-serif;
-    }
-
-    h1 {
-        color: #2e8b57;  /* Verde oscuro */
-        text-align: center;  /* Centrado del título */
-    }
-
-    .description {
-        color: #333333;  /* Texto en gris oscuro */
-        font-size: 18px;
-        text-align: center;  /* Centrado del texto */
-        max-width: 800px;  /* Controlar el ancho del texto */
-        margin: 20px auto;  /* Centrar el texto con margen */
-    }
-    </style>
-    """, unsafe_allow_html=True
-)
 
 # Título de la página
 st.markdown("<h1>🦾 Transcriptor de ADN, ARN y Aminoácidos </h1>", unsafe_allow_html=True)
