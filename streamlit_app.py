@@ -217,7 +217,7 @@ def transcribir_adn_a_arn(adn):
     """
     Convierte una secuencia de ADN en ARN, reemplazando la Timina (T) por Uracilo (U).
     """
-    transcripcion = {'A': 'A', 'T': 'U', 'G': 'C', 'C': 'G'}
+    transcripcion = {'A': 'U', 'T': 'A', 'G': 'C', 'C': 'G'}
     arn = ''
     for base in adn:
         if base in transcripcion:
