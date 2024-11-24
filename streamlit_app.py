@@ -102,8 +102,6 @@ st.markdown(
 )
 
 
-
-
 # Título de la página
 st.title("🧬 Cadenas de ADN, ARN y Proteinas")
 
