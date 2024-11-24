@@ -107,8 +107,25 @@ st.markdown(
 # Título de la página
 st.title("🧬 Cadenas de ADN, ARN y Proteinas")
 
-st.image(['https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh1Nc1DG3hljFISFaeFXkvACe9sSgCw_m74o7LZHOYw4N6Jfkse5ZvWQ5ByyXOPPpH2G5zVW6ms9sWK06lNH366Z1cHwpJCi030odM-IWqlU_9CJ9CblonJ23XgCURYDFIB6YHs7sKY4_d7/s1600/wifi44Imagen-animada-ADN-30.gif'])
+st.markdown("""
+    <style>
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
+""", unsafe_allow_html=True)
 
+# Contenedor para la imagen
+st.markdown('<div class="image-container">', unsafe_allow_html=True)
+
+# Cargar la imagen y mostrarla centrada
+st.image('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh1Nc1DG3hljFISFaeFXkvACe9sSgCw_m74o7LZHOYw4N6Jfkse5ZvWQ5ByyXOPPpH2G5zVW6ms9sWK06lNH366Z1cHwpJCi030odM-IWqlU_9CJ9CblonJ23XgCURYDFIB6YHs7sKY4_d7/s1600/wifi44Imagen-animada-ADN-30.gif')
+
+# Cerrar el contenedor
+st.markdown('</div>', unsafe_allow_html=True)
 
 # Sección de bienvenida
 st.write("""
