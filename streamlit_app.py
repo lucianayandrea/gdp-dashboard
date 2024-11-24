@@ -378,6 +378,8 @@ st.title("Cuantificador de aminoácidos en una cadena")
 # Descripción de la aplicación
 st.write("""
     En esta sección permite ingresar una secuencia de aminoácidos de tres letras y calcula los porcentajes de frecuencia de cada aminoácido en una cadena.
+
+    (Puedes utilizar la transcripción anterior de aminoácidos para la cuantificación en esta sección)
 """)
 
 # Entrada de texto para que el usuario ingrese la secuencia de aminoácidos
