@@ -314,6 +314,7 @@ st.title("Transcripción de ARN a Aminoácidos")
 st.write("""En esta sección se toma una secuencia de ARN, la divide en codones y luego la traduce a aminoácidos. 
 Un codón es un conjunto de tres nucleótidos que codifica un aminoácido.
 Ingrese la cadena sin espacios, comas o guión.
+(Puedes utilizar la transcripción anterior de ARN para la transcripcion a aminoácidos en esta sección)
 """)
 
 # Entrada de texto para que el usuario ingrese una secuencia de ARN
