@@ -107,7 +107,7 @@ st.markdown(
 # Título de la página
 st.title("🧬 Cadenas de ADN, ARN y Proteinas")
 
-st.image(proteina['https://globetechcdn.com/mobile_es_labmedica/images/stories/articles/article_images/2019-08-21/R3z42ndQ.jpeg'])
+st.image(['https://globetechcdn.com/mobile_es_labmedica/images/stories/articles/article_images/2019-08-21/R3z42ndQ.jpeg'])
 
 
 # Sección de bienvenida
