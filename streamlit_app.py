@@ -107,7 +107,7 @@ st.markdown(
 # Título de la página
 st.title("🧬 Cadenas de ADN, ARN y Proteinas")
 
-st.image(['hhttps://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh1Nc1DG3hljFISFaeFXkvACe9sSgCw_m74o7LZHOYw4N6Jfkse5ZvWQ5ByyXOPPpH2G5zVW6ms9sWK06lNH366Z1cHwpJCi030odM-IWqlU_9CJ9CblonJ23XgCURYDFIB6YHs7sKY4_d7/s1600/wifi44Imagen-animada-ADN-30.gif'])
+st.image(['https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh1Nc1DG3hljFISFaeFXkvACe9sSgCw_m74o7LZHOYw4N6Jfkse5ZvWQ5ByyXOPPpH2G5zVW6ms9sWK06lNH366Z1cHwpJCi030odM-IWqlU_9CJ9CblonJ23XgCURYDFIB6YHs7sKY4_d7/s1600/wifi44Imagen-animada-ADN-30.gif'])
 
 
 # Sección de bienvenida
