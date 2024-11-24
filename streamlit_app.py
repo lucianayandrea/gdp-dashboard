@@ -114,7 +114,7 @@ proteinas = [
         "nombre": "Actina",
         "descripcion": "La actina es una proteína involucrada en la contracción muscular y en la forma celular.",
         "imagen": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Actin_with_ADP_highlighted.png"
-    }
+    },
      {
         "nombre": "Mioglobina",
         "descripcion": "Es una proteína que se encarga de transportar y almacenar oxígeno en los músculos, especialmente en el cardíaco.",
